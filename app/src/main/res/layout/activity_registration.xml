@@ -11,100 +11,102 @@
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="39dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="22dp"
         android:hint="Введите имя:"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toTopOf="@+id/lastName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/lastName"
+        android:id="@+id/LastName"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="22dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="19dp"
         android:hint="Введите фамилию:"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toTopOf="@+id/Patronymic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FirstName" />
 
     <EditText
-        android:id="@+id/Patronymic"
+        android:id="@+id/Email"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="19dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="21dp"
-        android:hint="Введите отчество:"
+        android:hint="Введите почту:"
         android:imeOptions="actionDone"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toTopOf="@+id/Number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LastName" />
 
     <EditText
         android:id="@+id/Password"
         android:layout_width="363dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="26dp"
         android:hint="Введите пароль:"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
-        app:layout_constraintBottom_toTopOf="@+id/btnResgister"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Number" />
 
     <Button
         android:id="@+id/btnResgister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="109dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="108dp"
-        android:layout_marginBottom="22dp"
         android:text="Зарегестрировать"
-        app:layout_constraintBottom_toTopOf="@+id/tvUserLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
 
     <TextView
         android:id="@+id/tvUserLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginEnd="129dp"
-        android:layout_marginBottom="90dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="79dp"
         android:text="Есть аккаунт? Войдите!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnResgister" />
 
     <EditText
         android:id="@+id/Number"
         android:layout_width="363dp"
         android:layout_height="42dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="23dp"
         android:ems="10"
         android:hint="Введите номер телефона:"
         android:inputType="textPhonetic"
-        app:layout_constraintBottom_toTopOf="@+id/Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Email"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -128,9 +130,7 @@
         android:layout_marginStart="117dp"
         android:layout_marginTop="23dp"
         android:layout_marginEnd="117dp"
-        android:layout_marginBottom="39dp"
         android:text="Создание нового аккаунта"
-        app:layout_constraintBottom_toTopOf="@+id/FirstName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
