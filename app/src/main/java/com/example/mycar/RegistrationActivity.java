@@ -36,7 +36,7 @@ public class RegistrationActivity extends AppCompatActivity {
         regEmail = findViewById(R.id.Email);
         regNumber = findViewById(R.id.Number);
         regPassword = findViewById(R.id.Password);
-        progressBar = findViewById(R.id.progressBarLog);
+        progressBar = findViewById(R.id.progressBarReg);
 
         fAuth = FirebaseAuth.getInstance();
         if(fAuth.getCurrentUser() != null){
@@ -81,7 +81,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
                 if(password.isEmpty()){
-                    regPassword.setError("Введите свой номером телефона!!!");
+                    regPassword.setError("Введите пароль!!!");
                     return;
                 }else if(password.length() < 6){
                     regPassword.setError("Пароль должен содержать больше 6 символов");
@@ -98,6 +98,7 @@ public class RegistrationActivity extends AppCompatActivity {
                        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                    }else {
                        Toast.makeText(RegistrationActivity.this,"Ошибка в регистрации!"+ task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                       progressBar.setVisibility(View.GONE);
                    }
                     }
                 });
@@ -107,7 +108,7 @@ public class RegistrationActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
     }
