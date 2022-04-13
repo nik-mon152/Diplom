@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,17 +14,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.nio.file.FileStore;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity {
 
     EditText regFirstName, regLastName, regEmail, regNumber, regPassword;
     Button btnResgister;
     TextView btnLogin;
+    String userID;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +50,7 @@ public class RegistrationActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBarReg);
 
         fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
         if(fAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             finish();
@@ -52,7 +64,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String lastName = regLastName.getText().toString();
                 String email = regEmail.getText().toString().trim();
                 String number = regNumber.getText().toString();
-                String password = regPassword.getText().toString();
+                String password = regPassword.getText().toString().trim();
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 if(firstName.isEmpty()){
@@ -95,6 +107,24 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                    if(task.isSuccessful()){
                        Toast.makeText(RegistrationActivity.this,"Регистрация прошла успешно!",Toast.LENGTH_SHORT).show();
+                       userID = fAuth.getCurrentUser().getUid();
+                       DocumentReference documentReference = fStore.collection("Users").document(userID);
+                       Map<String, Object> user = new HashMap<>();
+                       user.put("FirsName", firstName);
+                       user.put("LastName", lastName);
+                       user.put("Email", email);
+                       user.put("Number", number);
+                       documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                           @Override
+                           public void onSuccess(Void aVoid) {
+                               Log.d("Сообщение", "Пользователь создан c уникальным кодом:" + userID);
+                           }
+                       }).addOnFailureListener(new OnFailureListener() {
+                           @Override
+                           public void onFailure(@NonNull Exception e) {
+                               Log.d("Сообщение об ошибке", "Пользователь не был создан");
+                           }
+                       });
                        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
                    }else {
                        Toast.makeText(RegistrationActivity.this,"Ошибка в регистрации!"+ task.getException().getMessage(),Toast.LENGTH_SHORT).show();
