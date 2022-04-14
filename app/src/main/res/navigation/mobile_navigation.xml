@@ -8,29 +8,28 @@
 
     <fragment
         android:id="@+id/navigation_car"
-        android:name="com.example.mycar.CarFragment"
+        android:name="com.example.mycar.ui.Car.CarFragment"
         android:label="@string/title_car"
         tools:layout="@layout/fragment_car" />
     <fragment
-        android:id="@+id/navigation_zapravka"
-        android:name="com.example.mycar.ZapravkaFragment"
-        android:label="@string/title_zapravka"
-        tools:layout="@layout/fragment_car" />
-    <fragment
         android:id="@+id/navigation_raskhody"
-        android:name="com.example.mycar.RaskhodyFragment"
+        android:name="com.example.mycar.ui.Raskhody.RaskhodyFragment"
         android:label="@string/title_raskhody"
         tools:layout="@layout/fragment_raskhody" />
     <fragment
-        android:id="@+id/navigation_autoservise"
-        android:name="com.example.mycar.AutoserviseFragment"
-        android:label="@string/title_autoservise"
-        tools:layout="@layout/fragment_autoservise" />
-    <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.mycar.NotificationsFragment"
+        android:name="com.example.mycar.ui.Notification.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
-
+    <fragment
+        android:id="@+id/navigation_service"
+        android:name="com.example.mycar.ui.Service.ServiceFragment"
+        android:label="@string/title_service"
+        tools:layout="@layout/fragment_service" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.mycar.ui.Profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 
 </navigation>

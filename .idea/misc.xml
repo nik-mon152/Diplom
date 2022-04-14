@@ -6,6 +6,7 @@
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable-v24/background_splash.xml" value="0.2265" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1795" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/custom_input.xml" value="0.1795" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_account_circle.xml" value="0.1" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_alternate_email.xml" value="0.1795" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_car_repair.xml" value="0.1795" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_directions_car.xml" value="0.1795" />
@@ -27,7 +28,9 @@
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_notifications.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_raskhody.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_service.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_zapravka.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.121" />

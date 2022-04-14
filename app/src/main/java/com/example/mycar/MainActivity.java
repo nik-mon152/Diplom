@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_car,
-                R.id.navigation_zapravka,
+                R.id.navigation_service,
                 R.id.navigation_raskhody,
-                R.id.navigation_autoservise,
-                R.id.navigation_notifications)
+                R.id.navigation_notifications,
+                R.id.navigation_profile)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);

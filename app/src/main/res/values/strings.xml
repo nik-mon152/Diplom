@@ -2,7 +2,7 @@
     <string name="app_name">My Car</string>
     <string name="title_notifications">Напоминания</string>
     <string name="title_car">Машина</string>
-    <string name="title_zapravka">Заправка</string>
+    <string name="title_service">Сервис</string>
     <string name="title_raskhody">Расходы</string>
     <string name="title_autoservise">Автосервис</string>
     <string name="title_profile">Профиль</string>

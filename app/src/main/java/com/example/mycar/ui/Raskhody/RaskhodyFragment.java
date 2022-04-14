@@ -1,4 +1,4 @@
-package com.example.mycar;
+package com.example.mycar.ui.Raskhody;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.mycar.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CarFragment#newInstance} factory method to
+ * Use the {@link RaskhodyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CarFragment extends Fragment {
+public class RaskhodyFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class CarFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CarFragment() {
+    public RaskhodyFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class CarFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CarFragment.
+     * @return A new instance of fragment RaskhodyFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CarFragment newInstance(String param1, String param2) {
-        CarFragment fragment = new CarFragment();
+    public static RaskhodyFragment newInstance(String param1, String param2) {
+        RaskhodyFragment fragment = new RaskhodyFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class CarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_car, container, false);
+        return inflater.inflate(R.layout.fragment_raskhody, container, false);
     }
 }

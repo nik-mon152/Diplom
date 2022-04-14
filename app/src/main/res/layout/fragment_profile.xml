@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ZapravkaFragment">
+    tools:context=".ui.Profile.ProfileFragment">
 
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="192dp"
-        android:layout_height="176dp"
-        android:src="@drawable/ic_baseline_local_drink"
+        android:id="@+id/imageView6"
+        android:layout_width="129dp"
+        android:layout_height="127dp"
+        android:src="@drawable/ic_baseline_account_circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
