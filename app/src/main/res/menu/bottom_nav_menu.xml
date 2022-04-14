@@ -7,6 +7,21 @@
         android:title="@string/title_car" />
 
     <item
+        android:id="@+id/navigation_zapravka"
+        android:icon="@drawable/ic_baseline_local_drink"
+        android:title="@string/title_zapravka" />
+
+    <item
+        android:id="@+id/navigation_raskhody"
+        android:icon="@drawable/ic_baseline_score_24"
+        android:title="@string/title_raskhody" />
+
+    <item
+        android:id="@+id/navigation_autoservise"
+        android:icon="@drawable/ic_baseline_car_repair"
+        android:title="@string/title_autoservise" />
+
+    <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="@string/title_notifications" />

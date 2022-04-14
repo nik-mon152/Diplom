@@ -5,16 +5,32 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_car">
 
-    <fragment
-        android:id="@+id/navigation_car"
-        android:name="com.example.mycar.ui.Car.CarFragment"
-        android:label="@string/title_car"
-        tools:layout="@layout/fragment_car" />
 
     <fragment
+        android:id="@+id/navigation_car"
+        android:name="com.example.mycar.CarFragment"
+        android:label="@string/title_car"
+        tools:layout="@layout/fragment_car" />
+    <fragment
+        android:id="@+id/navigation_zapravka"
+        android:name="com.example.mycar.ZapravkaFragment"
+        android:label="@string/title_zapravka"
+        tools:layout="@layout/fragment_car" />
+    <fragment
+        android:id="@+id/navigation_raskhody"
+        android:name="com.example.mycar.RaskhodyFragment"
+        android:label="@string/title_raskhody"
+        tools:layout="@layout/fragment_raskhody" />
+    <fragment
+        android:id="@+id/navigation_autoservise"
+        android:name="com.example.mycar.AutoserviseFragment"
+        android:label="@string/title_autoservise"
+        tools:layout="@layout/fragment_autoservise" />
+    <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.mycar.ui.notifications.NotificationsFragment"
+        android:name="com.example.mycar.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
 
 </navigation>

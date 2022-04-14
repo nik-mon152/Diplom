@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CarFragment">
+    tools:context=".ZapravkaFragment">
+
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="228dp"
-        android:layout_height="215dp"
-        android:src="@drawable/ic_baseline_directions_car"
+        android:id="@+id/imageView4"
+        android:layout_width="192dp"
+        android:layout_height="176dp"
+        android:src="@drawable/ic_baseline_local_drink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

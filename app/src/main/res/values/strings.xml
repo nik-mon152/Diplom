@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">My Car</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Напоминания</string>
     <string name="title_car">Машина</string>
+    <string name="title_zapravka">Заправка</string>
+    <string name="title_raskhody">Расходы</string>
+    <string name="title_autoservise">Автосервис</string>
+    <string name="title_profile">Профиль</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
