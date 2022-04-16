@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -107,6 +108,22 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                    if(task.isSuccessful()){
+
+                       FirebaseUser users = fAuth.getCurrentUser();
+                       users.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                           @Override
+                           public void onSuccess(Void unused) {
+                               Log.d("Сообщение:", "Письмо отправлено");
+                               Toast.makeText(RegistrationActivity.this,"Письмо с подтверждением почты отправлено!",Toast.LENGTH_SHORT).show();
+                           }
+                       }).addOnFailureListener(new OnFailureListener() {
+                           @Override
+                           public void onFailure(@NonNull Exception e) {
+                               Log.d("Сообщение об ошибке", "Письмо не было отправлено " + e.getMessage());
+                           }
+                       });
+
+
                        Toast.makeText(RegistrationActivity.this,"Регистрация прошла успешно!",Toast.LENGTH_SHORT).show();
                        userID = fAuth.getCurrentUser().getUid();
                        DocumentReference documentReference = fStore.collection("Users").document(userID);
@@ -123,7 +140,7 @@ public class RegistrationActivity extends AppCompatActivity {
                        }).addOnFailureListener(new OnFailureListener() {
                            @Override
                            public void onFailure(@NonNull Exception e) {
-                               Log.d("Сообщение об ошибке", "Пользователь не был создан");
+                               Log.d("Сообщение об ошибке", "Пользователь не был создан " + e.getMessage());
                            }
                        });
                        startActivity(new Intent(getApplicationContext(),LoginActivity.class));

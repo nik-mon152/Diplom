@@ -12,9 +12,9 @@
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="142dp"
         android:layout_marginTop="62dp"
-        android:layout_marginBottom="81dp"
-        app:layout_constraintBottom_toTopOf="@+id/profileFirsName"
+        android:layout_marginEnd="141dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,67 +22,102 @@
 
     <TextView
         android:id="@+id/profileFirsName"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="379dp"
+        android:layout_height="38dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="30dp"
         android:text="Имя"
-        app:layout_constraintBottom_toTopOf="@+id/profileLastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/profileLastName"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="379dp"
+        android:layout_height="38dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="27dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="25dp"
         android:text="Фамилия"
-        app:layout_constraintBottom_toTopOf="@+id/profilePhone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileFirsName" />
 
     <TextView
         android:id="@+id/profilePhone"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="379dp"
+        android:layout_height="38dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="28dp"
         android:text="Почта"
-        app:layout_constraintBottom_toTopOf="@+id/profileEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileLastName" />
 
     <TextView
         android:id="@+id/profileEmail"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="379dp"
+        android:layout_height="38dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="118dp"
         android:text="Номер телефона"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePhone" />
 
     <Button
         android:id="@+id/btnLogout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="67dp"
-        android:text="Выйти"
+        android:layout_width="411dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="54dp"
         android:onClick="logout"
+        android:text="Выйти"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileEmail"
+        app:layout_constraintTop_toBottomOf="@+id/btnChangePasswd"
         tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/btnChangePasswd"
+        android:layout_width="411dp"
+        android:layout_height="38dp"
+        android:onClick="logout"
+        android:text="Смена пароля"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bntverifyEmail"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/bntverifyEmail"
+        android:layout_width="411dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="28dp"
+        android:onClick="logout"
+        android:text="Верификация почты"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verifyMsg"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/verifyMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="79dp"
+        android:text="Верификация не пройдена"
+        android:textColor="#f00"
+        android:textSize="20dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
