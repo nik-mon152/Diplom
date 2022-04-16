@@ -1,11 +1,13 @@
 package com.example.mycar.ui.Profile;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 
@@ -14,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,9 +36,10 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 public class ProfileFragment extends Fragment {
 
     TextView fullname, lastname, email, number, verMsg;
-    Button bntLogout, verEmail;
+    Button bntLogout, verEmail, resetPasswd;
     FirebaseAuth fAuth;
     FirebaseFirestore fstore;
+    FirebaseUser user;
     String userId;
 
     @Override
@@ -56,7 +60,7 @@ public class ProfileFragment extends Fragment {
         verMsg = v.findViewById(R.id.verifyMsg);
 
         userId = fAuth.getCurrentUser().getUid();
-        FirebaseUser user = fAuth.getCurrentUser();
+        user = fAuth.getCurrentUser();
 
         if(!user.isEmailVerified()){
             verMsg.setVisibility(container.VISIBLE);
@@ -80,6 +84,44 @@ public class ProfileFragment extends Fragment {
                 }
             });
         }
+        resetPasswd = v.findViewById(R.id.btnChangePasswd);
+        resetPasswd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText resetPasswd = new EditText(view.getContext());
+
+                AlertDialog.Builder dialogResetPassword = new AlertDialog.Builder(view.getContext());
+                dialogResetPassword.setTitle("Хотите сменить пароль?");
+                dialogResetPassword.setMessage("Введите новый пароль больше 6 символов");
+                dialogResetPassword.setView(resetPasswd);
+
+                dialogResetPassword.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //При заполнении поля с почто будет дана ссылка для смены пароля
+                        String passwd = resetPasswd.getText().toString();
+                        user.updatePassword(passwd).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(v.getContext(),"Вы успешно поменяли пароль!",Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(v.getContext(),"Произошла ошибка в смене пароля!",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+                dialogResetPassword.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                dialogResetPassword.create().show();
+            }
+        });
 
         DocumentReference documentReference = fstore.collection("Users").document(userId);
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
