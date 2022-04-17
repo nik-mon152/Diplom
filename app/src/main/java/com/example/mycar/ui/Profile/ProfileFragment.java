@@ -169,10 +169,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 fAuth.signOut();
                 startActivity(new Intent(getActivity(), LoginActivity.class));
-                onStop();
-                onDestroyView();
-                onDestroy();
-                onDetach();
+                getActivity().finish();
             }
         });
         changeProfile = v.findViewById(R.id.btnChangeProfile);
@@ -223,25 +220,5 @@ public class ProfileFragment extends Fragment {
                 Toast.makeText(getContext(),"Произошла ошибка в загрузке фото!",Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    public void onStop(){
-        super.onStop();
-    }
-
-    @Override
-    public void onDestroyView(){
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-    }
-
-    @Override
-    public void onDetach(){
-        super.onDetach();
     }
 }
