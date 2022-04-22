@@ -31,6 +31,7 @@ public class SplashScreen extends AppCompatActivity {
             if (count == limit){
                 Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }else {handler.postDelayed(onEverySecond, 1000);
             }
         }

@@ -14,15 +14,6 @@ import com.example.mycar.R;
 
 public class NotificationsFragment extends Fragment {
 
-   Button bnt;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

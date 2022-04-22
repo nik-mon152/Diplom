@@ -92,8 +92,8 @@ public class ProfileFragment extends Fragment {
         user = fAuth.getCurrentUser();
 
         if(!user.isEmailVerified()){
-            verMsg.setVisibility(container.VISIBLE);
-            verEmail.setVisibility(container.VISIBLE);
+            verMsg.setVisibility(v.VISIBLE);
+            verEmail.setVisibility(v.VISIBLE);
 
             verEmail.setOnClickListener(new View.OnClickListener() {
                 @Override
