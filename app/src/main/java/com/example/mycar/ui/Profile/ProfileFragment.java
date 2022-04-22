@@ -176,8 +176,15 @@ public class ProfileFragment extends Fragment {
         changeProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(openGallery, 1000);
+                //открытие галереи
+                //Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                //startActivityForResult(openGallery, 1000);
+                Intent intent = new Intent(v.getContext(), EditProfile.class);
+                intent.putExtra("Имя", "Никита");
+                intent.putExtra("Фамилия", "Монахов");
+                intent.putExtra("Почта", "wart_152@mail.ru");
+                intent.putExtra("Номер телефона", "89990733386");
+                startActivity(intent);
             }
         });
         return v;
