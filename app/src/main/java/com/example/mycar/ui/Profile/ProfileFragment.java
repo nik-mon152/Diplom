@@ -64,6 +64,7 @@ public class ProfileFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
 
 
+
         fullname = v.findViewById(R.id.profileFirsName);
         lastname = v.findViewById(R.id.profileLastName);
         email = v.findViewById(R.id.profileEmail);
@@ -156,10 +157,16 @@ public class ProfileFragment extends Fragment {
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                fullname.setText(documentSnapshot.getString("FirsName"));
-                lastname.setText(documentSnapshot.getString("LastName"));
-                email.setText(documentSnapshot.getString("Email"));
-                number.setText(documentSnapshot.getString("Number"));
+                if (documentSnapshot != null) {
+                    if(documentSnapshot.exists()){
+                        fullname.setText(documentSnapshot.getString("FirsName"));
+                        lastname.setText(documentSnapshot.getString("LastName"));
+                        email.setText(documentSnapshot.getString("Email"));
+                        number.setText(documentSnapshot.getString("Number"));
+                    }else{
+                        Log.d("Сообщение об ошибке", "Ошибка в документе");
+                    }
+                }
             }
         });
 
@@ -180,10 +187,10 @@ public class ProfileFragment extends Fragment {
                 //Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 //startActivityForResult(openGallery, 1000);
                 Intent intent = new Intent(v.getContext(), EditProfile.class);
-                intent.putExtra("Имя", "Никита");
-                intent.putExtra("Фамилия", "Монахов");
-                intent.putExtra("Почта", "wart_152@mail.ru");
-                intent.putExtra("Номер телефона", "89990733386");
+                intent.putExtra("Имя", fullname.getText().toString());
+                intent.putExtra("Фамилия", lastname.getText().toString());
+                intent.putExtra("Почта", email.getText().toString());
+                intent.putExtra("Номер телефона", number.getText().toString());
                 startActivity(intent);
             }
         });

@@ -4,27 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/editProfile"
     tools:context=".ui.Profile.EditProfile">
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="42dp"
-        android:text="Изменение профиля"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/textName"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -80,24 +68,25 @@
         android:layout_width="189dp"
         android:layout_height="177dp"
         android:layout_marginStart="111dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="111dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_account_circle" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="70dp"
         android:text="Сохранить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNumber" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
