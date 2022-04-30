@@ -42,6 +42,11 @@ public class LoginActivity extends AppCompatActivity {
         logEmail = findViewById(R.id.Email);
         logPassword = findViewById(R.id.Password);
 
+        if(fAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
+
         userRegister = findViewById(R.id.tvRegister);
         userRegister.setOnClickListener(new View.OnClickListener() {
             @Override

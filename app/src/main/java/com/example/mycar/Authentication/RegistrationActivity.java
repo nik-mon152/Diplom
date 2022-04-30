@@ -53,10 +53,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-//        if(fAuth.getCurrentUser() != null){
-//            startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
-//            finish();
-//        }
+
 
         btnResgister = findViewById(R.id.btnResgister);
         btnResgister.setOnClickListener(new View.OnClickListener() {

@@ -5,7 +5,6 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_car">
 
-
     <fragment
         android:id="@+id/navigation_car"
         android:name="com.example.mycar.ui.Car.CarFragment"
