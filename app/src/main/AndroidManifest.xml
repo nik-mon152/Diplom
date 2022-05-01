@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCar">
         <activity
+            android:name=".ui.Car.AddCar"
+            android:exported="false" />
+        <activity
             android:name=".ui.Profile.EditProfile"
             android:exported="false" />
         <activity
