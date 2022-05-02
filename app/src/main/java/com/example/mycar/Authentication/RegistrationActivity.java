@@ -120,7 +120,6 @@ public class RegistrationActivity extends AppCompatActivity {
                            }
                        });
 
-
                        Toast.makeText(RegistrationActivity.this,"Регистрация прошла успешно!",Toast.LENGTH_SHORT).show();
                        userID = fAuth.getCurrentUser().getUid();
                        DocumentReference documentReference = fStore.collection("Users").document(userID);
