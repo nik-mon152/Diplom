@@ -1,6 +1,7 @@
 package com.example.mycar.ui.Car;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +29,7 @@ import com.google.firebase.storage.StorageReference;
 public class CarFragment extends Fragment {
     TextView markaModel, age, probeg, fuel;
     ImageView carFoto;
+    Button addCar;
     FirebaseAuth fAuth;
     FirebaseFirestore fstore;
     FirebaseUser user;
@@ -42,6 +45,7 @@ public class CarFragment extends Fragment {
         probeg = v.findViewById(R.id.Probeg);
         fuel = v.findViewById(R.id.ViewFuelCar);
         carFoto = v.findViewById(R.id.CarFoto);
+        addCar = v.findViewById(R.id.btnAddCar);
 
         // Firebase
         fAuth = FirebaseAuth.getInstance();
@@ -50,10 +54,7 @@ public class CarFragment extends Fragment {
         userId = fAuth.getCurrentUser().getUid();
         user = fAuth.getCurrentUser();
 
-//        if (marka.length() == 0){
-//            startActivity(new Intent(getActivity(), AddCar.class));
-//            getActivity().finish();
-//        }
+
         DocumentReference documentReference = fstore.collection("Cars").document(userId);
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @SuppressLint("SetTextI18n")
@@ -71,8 +72,13 @@ public class CarFragment extends Fragment {
                 }
             }
         });
-
-
+        addCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(v.getContext(), AddCar.class));
+                getActivity().finish();
+            }
+        });
       return v;
     }
 }

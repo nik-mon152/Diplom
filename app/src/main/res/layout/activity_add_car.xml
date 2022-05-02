@@ -58,31 +58,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddAgeCar" />
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="391dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:text="Добавьте свой личный транспорт, чтобы использовать приложение"
-        android:textColor="@color/black"
-        android:textSize="23dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/CarFotoAdd"
         android:layout_width="281dp"
         android:layout_height="210dp"
         android:layout_marginStart="65dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="65dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/car" />
 
     <Button

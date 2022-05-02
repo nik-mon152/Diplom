@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -27,7 +29,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -45,6 +50,7 @@ public class AddCar extends AppCompatActivity {
 
     private String[] viewCarStr = {"Автомобиль", "Мотоцикл"};
     private String[] viewFuelStr = {"Бензин", "Дизель", "Газ"};
+    String userId;
 
     FirebaseAuth fAuth;
     FirebaseFirestore fstore;
@@ -56,12 +62,14 @@ public class AddCar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_car);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Добавление автомобиля");
 
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
         user = fAuth.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference();
+        userId = fAuth.getCurrentUser().getUid();
 
         ArrayAdapter<String> viewCarStrAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, viewCarStr);
         viewCarStrAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -94,6 +102,24 @@ public class AddCar extends AppCompatActivity {
             public void onClick(View view) {
                 Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(openGallery, 1000);
+            }
+        });
+
+        DocumentReference documentReference = fstore.collection("Cars").document(userId);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                if (documentSnapshot != null) {
+                    if(documentSnapshot.exists()){
+                        addmarka.setText(documentSnapshot.getString("Marka"));
+                        addmodel.setText(documentSnapshot.getString("Model"));
+                        addage.setText(documentSnapshot.getString("Year of issue"));
+                        addprobeg.setText(documentSnapshot.getString("Mileage"));
+                    }else{
+                        Log.d("Сообщение об ошибке", "Ошибка в документе");
+                    }
+                }
             }
         });
 
@@ -188,6 +214,16 @@ public class AddCar extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Произошла ошибка в загрузке фото!",Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home){
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

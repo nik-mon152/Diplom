@@ -89,13 +89,13 @@
         app:layout_constraintTop_toBottomOf="@+id/CarFoto" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnAddCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
-        android:layout_marginEnd="111dp"
+        android:layout_marginEnd="110dp"
         android:layout_marginBottom="60dp"
-        android:text="Изменить данные"
+        android:text="Добавить или изменить тс"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
