@@ -26,16 +26,19 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 
 public class CarFragment extends Fragment {
-    FirebaseAuth fAuth;
-    FirebaseFirestore fstore;
-    FirebaseUser user;
-    TextView marka, model;
+    TextView marka, model, age, probeg, fuel;
+    ImageView carFoto;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_car, container, false);
 
         marka = v.findViewById(R.id.Marka);
         model = v.findViewById(R.id.Model);
+        age = v.findViewById(R.id.AgeCar);
+        probeg = v.findViewById(R.id.Probeg);
+        fuel = v.findViewById(R.id.ViewFuelCar);
+        carFoto = v.findViewById(R.id.CarFoto);
 
         if (model.length() == 0 || marka.length() == 0){
             startActivity(new Intent(getActivity(), AddCar.class));

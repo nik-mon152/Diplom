@@ -160,7 +160,6 @@ public class EditProfile extends AppCompatActivity {
             }
         }
     }
-
     private void uploadImageToFirebase(Uri imageUri) {
         //загрузка фото в firebase Storage
         StorageReference fileRef = storageReference.child("users/" + fAuth.getCurrentUser().getUid() + "/profile.jpg");

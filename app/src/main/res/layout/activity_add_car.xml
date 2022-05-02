@@ -11,38 +11,37 @@
         android:layout_width="170dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="Марка авто"
         app:layout_constraintBottom_toTopOf="@+id/AddAgeCar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ViewCar" />
+        app:layout_constraintEnd_toStartOf="@+id/AddModel"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/AddModel"
         android:layout_width="170dp"
         android:layout_height="45dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="Модель авто"
         app:layout_constraintBottom_toTopOf="@+id/ViewFuel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/AddMarka"
-        app:layout_constraintTop_toBottomOf="@+id/ViewCar" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/AddAgeCar"
         android:layout_width="170dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="34dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="45dp"
         android:ems="10"
         android:hint="Год выпуска"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddCar"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/progressBarAdd"
+        app:layout_constraintEnd_toStartOf="@+id/ViewFuel"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -50,7 +49,7 @@
         android:layout_width="391dp"
         android:layout_height="79dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         android:gravity="center"
         android:text="Добавьте свой личный транспорт, чтобы использовать приложение"
@@ -61,12 +60,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/CarFotoAdd"
         android:layout_width="281dp"
         android:layout_height="210dp"
         android:layout_marginStart="65dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="65dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/ViewCar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
@@ -78,9 +79,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="147dp"
         android:layout_marginEnd="147dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="25dp"
         android:text="Добавить"
-        app:layout_constraintBottom_toTopOf="@+id/progressBarAdd"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -91,8 +92,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="180dp"
         android:layout_marginEnd="180dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddCar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -101,13 +102,11 @@
         style="@style/Widget.AppCompat.Spinner.Underlined"
         android:layout_width="170dp"
         android:layout_height="45dp"
-        android:layout_marginStart="40dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="34dp"
+        android:layout_marginBottom="45dp"
         android:hint="Год выпуска"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddCar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/AddAgeCar" />
+        app:layout_constraintBottom_toTopOf="@+id/progressBarAdd"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Spinner
         android:id="@+id/ViewCar"
@@ -115,9 +114,9 @@
         android:layout_width="379dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="31dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/AddMarka"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
