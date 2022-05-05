@@ -6,6 +6,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.example.mycar.ui.Service.Fragment.AddTableFragment;
+import com.example.mycar.ui.Service.Fragment.ServiseTableFragment;
+import com.example.mycar.ui.Service.Fragment.ZapravkaFragment;
+
 public class ServiceViewPagerAdapter extends FragmentStatePagerAdapter {
     public ServiceViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);

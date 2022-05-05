@@ -1,4 +1,4 @@
-package com.example.mycar.ui.Service;
+package com.example.mycar.ui.Service.Fragment;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.mycar.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AddTableFragment#newInstance} factory method to
+ * Use the {@link ZapravkaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddTableFragment extends Fragment {
+public class ZapravkaFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class AddTableFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AddTableFragment() {
+    public ZapravkaFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class AddTableFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AddTableFragment.
+     * @return A new instance of fragment ZapravkaFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AddTableFragment newInstance(String param1, String param2) {
-        AddTableFragment fragment = new AddTableFragment();
+    public static ZapravkaFragment newInstance(String param1, String param2) {
+        ZapravkaFragment fragment = new ZapravkaFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class AddTableFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_table, container, false);
+        return inflater.inflate(R.layout.fragment_zapravka, container, false);
     }
 }

@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCar">
         <activity
+            android:name=".ui.Service.AddingService.AddService"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Service.AddingService.AddZapravka"
+            android:exported="false" />
+        <activity
             android:name=".ui.Car.AddCar"
             android:exported="false" />
         <activity

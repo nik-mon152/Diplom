@@ -76,7 +76,6 @@ public class CarFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(v.getContext(), AddCar.class));
-                getActivity().finish();
             }
         });
       return v;

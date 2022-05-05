@@ -220,7 +220,6 @@ public class AddCar extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home){
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
         return super.onOptionsItemSelected(item);
