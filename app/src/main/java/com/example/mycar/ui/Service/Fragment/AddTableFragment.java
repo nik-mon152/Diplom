@@ -16,7 +16,9 @@ import android.widget.TextView;
 import com.example.mycar.Authentication.LoginActivity;
 import com.example.mycar.R;
 import com.example.mycar.ui.Car.AddCar;
+import com.example.mycar.ui.Service.AddingService.AddService;
 import com.example.mycar.ui.Service.AddingService.AddZapravka;
+import com.example.mycar.ui.Service.InfoServise;
 
 public class AddTableFragment extends Fragment {
 
@@ -51,13 +53,25 @@ public class AddTableFragment extends Fragment {
         textService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(v.getContext(), AddService.class));
+            }
+        });
+        imgService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(v.getContext(), AddService.class));
             }
         });
         textInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(v.getContext(), InfoServise.class));
+            }
+        });
+        imgInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(v.getContext(), InfoServise.class));
             }
         });
         return v;

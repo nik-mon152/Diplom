@@ -7,7 +7,7 @@
     tools:context=".ui.Car.AddCar">
 
     <EditText
-        android:id="@+id/AddMarka"
+        android:id="@+id/Count"
         android:layout_width="170dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -42,7 +42,7 @@
         android:inputType="phone"
         app:layout_constraintEnd_toStartOf="@+id/ViewFuel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddMarka" />
+        app:layout_constraintTop_toBottomOf="@+id/Count" />
 
     <EditText
         android:id="@+id/AddProbeg"
@@ -53,7 +53,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Пробег"
-        android:inputType="phone"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddAgeCar" />
@@ -115,7 +115,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="18dp"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CarFotoAdd" />
+        app:layout_constraintTop_toBottomOf="@+id/CarFotoAdd"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

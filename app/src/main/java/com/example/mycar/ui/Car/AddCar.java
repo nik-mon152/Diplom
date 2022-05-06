@@ -21,7 +21,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mycar.Authentication.LoginActivity;
 import com.example.mycar.MainActivity;
 import com.example.mycar.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -78,7 +77,7 @@ public class AddCar extends AppCompatActivity {
         viewFuelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         bar = findViewById(R.id.progressBarAdd);
-        addmarka = findViewById(R.id.AddMarka);
+        addmarka = findViewById(R.id.Count);
         addmodel = findViewById(R.id.AddModel);
         addage = findViewById(R.id.AddAgeCar);
         addprobeg = findViewById(R.id.AddProbeg);
@@ -86,6 +85,7 @@ public class AddCar extends AppCompatActivity {
         //Нахождение и создание спиннера для выбора вида транспорта
         addviewCar = findViewById(R.id.ViewCar);
         addviewCar.setAdapter(viewCarStrAdapter);
+        addviewCar.setPrompt("Выберите вид транспорта");
         //Нахождение и создание спиннера для вида топлива
         addviewFuel = findViewById(R.id.ViewFuel);
         addviewFuel.setAdapter(viewFuelAdapter);
