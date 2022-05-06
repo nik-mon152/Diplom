@@ -43,7 +43,7 @@ import java.util.Map;
 public class AddCar extends AppCompatActivity {
 
     TextView addmarka, addmodel, addage, addprobeg;
-    ImageView carFoto;
+    ImageView foto;
     Button addCar;
     Spinner addviewCar, addviewFuel;
 
@@ -81,7 +81,7 @@ public class AddCar extends AppCompatActivity {
         addmodel = findViewById(R.id.AddModel);
         addage = findViewById(R.id.AddAgeCar);
         addprobeg = findViewById(R.id.AddProbeg);
-        carFoto = findViewById(R.id.CarFotoAdd);
+        foto = findViewById(R.id.CarFotoAdd);
         //Нахождение и создание спиннера для выбора вида транспорта
         addviewCar = findViewById(R.id.ViewCar);
         addviewCar.setAdapter(viewCarStrAdapter);
@@ -90,14 +90,14 @@ public class AddCar extends AppCompatActivity {
         addviewFuel = findViewById(R.id.ViewFuel);
         addviewFuel.setAdapter(viewFuelAdapter);
 
-        StorageReference profileRef = storageReference.child("Сars/" + fAuth.getCurrentUser().getUid() + "/car.jpg");
+        StorageReference profileRef = storageReference.child("cars/" + fAuth.getCurrentUser().getUid() + "/car.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.get().load(uri).into(carFoto);
+                Picasso.get().load(uri).into(foto);
             }
         });
-        carFoto.setOnClickListener(new View.OnClickListener() {
+        foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -191,14 +191,14 @@ public class AddCar extends AppCompatActivity {
     }
     private void uploadImageToFirebase(Uri imageUri) {
         //загрузка фото в firebase Storage
-        StorageReference fileRef = storageReference.child("users/" + fAuth.getCurrentUser().getUid() + "/profile.jpg");
+        StorageReference fileRef = storageReference.child("cars/" + fAuth.getCurrentUser().getUid() + "/car.jpg");
         fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        Picasso.get().load(uri).into(carFoto);
+                        Picasso.get().load(uri).into(foto);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

@@ -6,6 +6,4 @@
     <string name="title_raskhody">Расходы</string>
     <string name="title_autoservise">Автосервис</string>
     <string name="title_profile">Профиль</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -8,12 +8,11 @@
 
     <ImageView
         android:id="@+id/CarFoto"
-        android:layout_width="379dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/car"
+        android:layout_width="279dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="66dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -78,7 +77,7 @@
         android:layout_width="269dp"
         android:layout_height="30dp"
         android:layout_marginStart="71dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="71dp"
         android:text="Данные о транспорте"
         android:textColor="@color/black"
