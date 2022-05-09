@@ -3,14 +3,14 @@ package com.example.mycar.ui.Service.Fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.mycar.R;
 import com.example.mycar.ui.Service.ModelZapravka.AdapterZapravka;
@@ -24,9 +24,11 @@ public class ZapravkaFragment extends Fragment {
     RecyclerView zapravkaLists;
     AdapterZapravka adapter;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_zapravka, container, false);
+
 
         zapravkaLists = v.findViewById(R.id.zapravralist);
 

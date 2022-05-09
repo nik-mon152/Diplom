@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.mycar.R;
 
 public class AddZapravka extends AppCompatActivity {
 
     EditText count, cumm, price, probeg, comment;
+    Spinner fuelView;
+    private String[] viewFuelStr = {"АИ-92", "АИ-95", "АИ-98", "АИ-100", "АИ-95+", "АИ-92+", "Дизель", "Метан", "Пропан"};
 
 
     @Override
@@ -22,6 +26,12 @@ public class AddZapravka extends AppCompatActivity {
         setContentView(R.layout.activity_add_zapravka);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Заправка");
+
+        ArrayAdapter<String> viewFuelStrAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, viewFuelStr);
+        viewFuelStrAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fuelView = findViewById(R.id.viewFuel);
+        fuelView.setAdapter(viewFuelStrAdapter);
+        fuelView.setPrompt("Выберите вид топлива");
 
 
         count = findViewById(R.id.Count);

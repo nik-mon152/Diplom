@@ -83,7 +83,7 @@ public class AddCar extends AppCompatActivity {
         addprobeg = findViewById(R.id.AddProbeg);
         foto = findViewById(R.id.CarFotoAdd);
         //Нахождение и создание спиннера для выбора вида транспорта
-        addviewCar = findViewById(R.id.ViewCar);
+        addviewCar = findViewById(R.id.viewCar);
         addviewCar.setAdapter(viewCarStrAdapter);
         addviewCar.setPrompt("Выберите вид транспорта");
         //Нахождение и создание спиннера для вида топлива
