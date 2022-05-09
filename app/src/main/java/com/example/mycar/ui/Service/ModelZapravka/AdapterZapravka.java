@@ -1,5 +1,6 @@
 package com.example.mycar.ui.Service.ModelZapravka;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycar.R;
+import com.example.mycar.ui.Service.AddingService.AddZapravka;
 
 import java.util.List;
 
@@ -52,7 +54,15 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.ViewHo
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "click item", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(view.getContext(), AddZapravka.class);
+                intent.putExtra("Fuel", fuels.get(position));
+                intent.putExtra("Cumm", cumms.get(position));
+                intent.putExtra("Litr", litrs.get(position));
+                intent.putExtra("Price", prices.get(position));
+                intent.putExtra("Probeg", probegs.get(position));
+                intent.putExtra("Comment", comments.get(position));
+                intent.putExtra("Data", dates.get(position));
+                view.getContext().startActivity(intent);
             }
         });
     }

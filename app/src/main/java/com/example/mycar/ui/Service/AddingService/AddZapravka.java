@@ -3,21 +3,43 @@ package com.example.mycar.ui.Service.AddingService;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.mycar.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 public class AddZapravka extends AppCompatActivity {
 
-    EditText count, cumm, price, probeg, comment;
+    EditText count, cumm, price, probeg, comment, data;
     Spinner fuelView;
+    Button addZapravka;
     private String[] viewFuelStr = {"АИ-92", "АИ-95", "АИ-98", "АИ-100", "АИ-95+", "АИ-92+", "Дизель", "Метан", "Пропан"};
+    FirebaseFirestore fstore;
+    FirebaseUser user;
+    FirebaseAuth fAuth;
 
 
     @Override
@@ -27,11 +49,21 @@ public class AddZapravka extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Заправка");
 
+        fAuth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
+        user = fAuth.getCurrentUser();
+
+        Intent intent = getIntent();
+
         ArrayAdapter<String> viewFuelStrAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, viewFuelStr);
         viewFuelStrAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fuelView = findViewById(R.id.viewFuel);
         fuelView.setAdapter(viewFuelStrAdapter);
         fuelView.setPrompt("Выберите вид топлива");
+
+        Date currentDate = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        String dateText = dateFormat.format(currentDate);
 
 
         count = findViewById(R.id.Count);
@@ -39,7 +71,16 @@ public class AddZapravka extends AppCompatActivity {
         price = findViewById(R.id.Price);
         probeg = findViewById(R.id.ProbegZapr);
         comment = findViewById(R.id.Comment);
+        data = findViewById(R.id.data);
+        data.setText(dateText);
 
+        fuelView.getSelectedItem().toString();
+        count.setText(intent.getStringExtra("Litr"));
+        cumm.setText(intent.getStringExtra("Cumm"));
+        price.setText(intent.getStringExtra("Price"));
+        probeg.setText(intent.getStringExtra("Probeg"));
+        comment.setText(intent.getStringExtra("Comment"));
+        data.setText(intent.getStringExtra("Data"));
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -64,6 +105,55 @@ public class AddZapravka extends AppCompatActivity {
         };
         count.addTextChangedListener(textWatcher);
         cumm.addTextChangedListener(textWatcher);
+
+        addZapravka = findViewById(R.id.AddZaprav);
+        addZapravka.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String addfuel = fuelView.getSelectedItem().toString();
+                String addcol = count.getText().toString();
+                String addcumm = cumm.getText().toString();
+                String addprice = price.getText().toString();
+                String addprobeg = probeg.getText().toString();
+                String addcomment = comment.getText().toString();
+                String adddata = data.getText().toString();
+
+                if(addcol.isEmpty()){
+                    count.setError("Введите данные в поле!!!");
+                    return;
+                }
+                if(addcumm.isEmpty()){
+                    cumm.setError("Введите данные в поле!!!");
+                    return;
+                }
+                if(addcomment.isEmpty()){
+                    comment.setError("Введите данные в поле!!!");
+                    return;
+                }
+                DocumentReference documentReference = fstore.collection("Zapravki").document(user.getUid());
+                Map<String, Object> zapravka = new HashMap<>();
+                zapravka.put("View Fuel", addfuel);
+                zapravka.put("Fuel quantity", addcol);
+                zapravka.put("Refueling amount", addcumm);
+                zapravka.put("price per liter", addprice);
+                zapravka.put("Mileage", addprobeg);
+                zapravka.put("Comment", addcomment);
+                zapravka.put("Refueling date", adddata);
+            documentReference.set(zapravka).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(getApplicationContext(),"Данные о заправке добавлены!",Toast.LENGTH_SHORT).show();
+                    onBackPressed();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(),"Ошибка в добавлении данных!",Toast.LENGTH_SHORT).show();
+                    Log.d("Сообщение об ошибке ", "Данные не добавлены " + e.getMessage());
+                }
+            });
+            }
+        });
 
     }
     @Override

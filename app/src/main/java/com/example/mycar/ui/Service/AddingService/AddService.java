@@ -25,7 +25,6 @@ public class AddService extends AppCompatActivity {
         autoCompleteTextView = findViewById(R.id.ViewWork);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.select_dialog_singlechoice, viewWork);
-//        autoCompleteTextView.setThreshold(1);
         autoCompleteTextView.setAdapter(adapter);
     }
     @Override
