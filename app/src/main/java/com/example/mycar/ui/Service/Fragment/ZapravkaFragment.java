@@ -36,6 +36,7 @@ public class ZapravkaFragment extends Fragment {
         List<String> prices = new ArrayList<>();
         List<String> probegs = new ArrayList<>();
         List<String> comments = new ArrayList<>();
+        List<String> dates = new ArrayList<>();
 
         fuels.add("АИ-95");
         cumms.add("2000Р");
@@ -43,6 +44,7 @@ public class ZapravkaFragment extends Fragment {
         prices.add("50Р");
         probegs.add("120000");
         comments.add("авпвпвввввпывар");
+        dates.add("06.05.2022");
 
         fuels.add("АИ-92");
         cumms.add("1500Р");
@@ -50,6 +52,7 @@ public class ZapravkaFragment extends Fragment {
         prices.add("52Р");
         probegs.add("130000");
         comments.add("GHbdfg");
+        dates.add("06.05.2022");
 
         fuels.add("АИ-92");
         cumms.add("1500Р");
@@ -57,6 +60,7 @@ public class ZapravkaFragment extends Fragment {
         prices.add("52Р");
         probegs.add("130000");
         comments.add("GHbdfg");
+        dates.add("06.05.2022");
 
         fuels.add("АИ-92");
         cumms.add("1500Р");
@@ -64,6 +68,7 @@ public class ZapravkaFragment extends Fragment {
         prices.add("52Р");
         probegs.add("130000");
         comments.add("GHbdfg");
+        dates.add("06.05.2022");
 
         fuels.add("АИ-92");
         cumms.add("1500Р");
@@ -71,6 +76,7 @@ public class ZapravkaFragment extends Fragment {
         prices.add("52Р");
         probegs.add("130000");
         comments.add("GHbdfg");
+        dates.add("06.05.2022");
 
         fuels.add("АИ-92");
         cumms.add("1500Р");
@@ -78,6 +84,7 @@ public class ZapravkaFragment extends Fragment {
         prices.add("52Р");
         probegs.add("130000");
         comments.add("GHbdfg");
+        dates.add("06.05.2022");
 
         fuels.add("АИ-92");
         cumms.add("1500Р");
@@ -85,15 +92,17 @@ public class ZapravkaFragment extends Fragment {
         prices.add("52Р");
         probegs.add("130000");
         comments.add("GHbdfg");
+        dates.add("06.05.2022");
 
         fuels.add("АИ-92");
         cumms.add("1500Р");
         litrs.add("45л");
         prices.add("52Р");
         probegs.add("130000");
-        comments.add("GHbdfg");
+        comments.add("fdjlkdmbsf;gjibslkgbnigfnjbgfl bnoigfjnls/g bniohjb/lnlx/ nvcbj;hosfbnl/ sf;obhnl/ zbnogb z");
+        dates.add("06.05.2022");
 
-        adapter = new AdapterZapravka(fuels, cumms, litrs, prices, probegs, comments);
+        adapter = new AdapterZapravka(fuels, cumms, litrs, prices, probegs, comments, dates);
         zapravkaLists.setLayoutManager(new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL));
         zapravkaLists.setAdapter(adapter);
 

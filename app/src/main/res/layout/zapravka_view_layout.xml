@@ -4,10 +4,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/zapravkaCard"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         app:cardElevation="8dp"
         app:cardCornerRadius="8dp"
-        android:layout_margin="16dp">
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="5dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -43,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="                      "
+                android:text="                "
                 android:textColor="@color/black"
                 android:textSize="18dp">
             </TextView>
@@ -91,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="                     "
+                android:text="              "
                 android:textColor="@color/black"
                 android:textSize="18dp">
             </TextView>
@@ -146,6 +149,29 @@
             android:textColor="@color/black"
             android:textSize="18dp">
         </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="                "
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Дата: "
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
+            <TextView
+                android:id="@+id/dataList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" date"
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
 
     </LinearLayout>
 

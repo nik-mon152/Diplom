@@ -20,15 +20,17 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.ViewHo
     List<String> prices;
     List<String> probegs;
     List<String> comments;
+    List<String> dates;
 
     public AdapterZapravka(List<String> fuel, List<String> cumm, List<String> litr,
-                           List<String> price, List<String> probeg, List<String> comment){
+                           List<String> price, List<String> probeg, List<String> comment, List<String> date){
         this.fuels = fuel;
         this.cumms = cumm;
         this.litrs = litr;
         this.prices = price;
         this.probegs = probeg;
         this.comments = comment;
+        this.dates = date;
     }
 
     @NonNull
@@ -46,6 +48,7 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.ViewHo
         holder.priceList.setText(prices.get(position));
         holder.probegList.setText(probegs.get(position));
         holder.commentList.setText(comments.get(position));
+        holder.dataList.setText(dates.get(position));
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +64,7 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView fuelList, cummList, litrList, priceList, probegList, commentList;
+        TextView fuelList, cummList, litrList, priceList, probegList, commentList, dataList;
         View view;
 
         public ViewHolder(@NonNull View itemView) {
@@ -72,6 +75,7 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.ViewHo
             priceList = itemView.findViewById(R.id.priceList);
             probegList = itemView.findViewById(R.id.prodegList);
             commentList = itemView.findViewById(R.id.commentList);
+            dataList = itemView.findViewById(R.id.dataList);
             view = itemView;
 
         }
