@@ -8,6 +8,7 @@ public class Zapravka {
     private String mileage;
     private String comment;
     private String data;
+    String docId;
 
     public Zapravka(){}
     public Zapravka(String view_Fuel, String fuel_quantity, String refueling_amount, String price_liter, String mileage, String comment, String data){
@@ -20,6 +21,13 @@ public class Zapravka {
         this.data = data;
     }
 
+    public String getDocId() {
+        return docId;
+    }
+
+    public void setDocId(String docId) {
+        this.docId = docId;
+    }
 
     public String getView_Fuel() {
         return view_Fuel;

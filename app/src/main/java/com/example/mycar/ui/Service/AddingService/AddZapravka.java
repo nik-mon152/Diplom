@@ -3,7 +3,6 @@ package com.example.mycar.ui.Service.AddingService;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -66,12 +65,12 @@ public class AddZapravka extends AppCompatActivity {
         String dateText = dateFormat.format(currentDate);
 
 
-        count = findViewById(R.id.Count);
-        cumm = findViewById(R.id.Cumm);
+        count = findViewById(R.id.countEdit);
+        cumm = findViewById(R.id.cummEdit);
         price = findViewById(R.id.Price);
-        probeg = findViewById(R.id.ProbegZapr);
-        comment = findViewById(R.id.Comment);
-        data = findViewById(R.id.data);
+        probeg = findViewById(R.id.ProbegEdit);
+        comment = findViewById(R.id.commentEdit);
+        data = findViewById(R.id.dataEdit);
         data.setText(dateText);
 
 

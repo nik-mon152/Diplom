@@ -50,6 +50,7 @@
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:editable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -95,27 +96,27 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/Count"
+            android:id="@+id/countEdit"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
             android:ems="10"
             android:hint="Кол-во"
-            android:inputType="phone"
+            android:editable="false"
             android:textSize="15dp"
             app:layout_constraintStart_toEndOf="@+id/imageView12"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
         <EditText
-            android:id="@+id/Cumm"
+            android:id="@+id/cummEdit"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:ems="10"
             android:hint="Сумма"
-            android:inputType="phone"
+            android:editable="false"
             app:layout_constraintEnd_toStartOf="@+id/Price"
-            app:layout_constraintStart_toEndOf="@+id/Count"
+            app:layout_constraintStart_toEndOf="@+id/countEdit"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
         <EditText
             android:id="@+id/Price"
@@ -124,7 +125,7 @@
             android:layout_marginEnd="27dp"
             android:ems="10"
             android:hint="Цена"
-            android:inputType="phone"
+            android:editable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
     </LinearLayout>
@@ -133,27 +134,27 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/ProbegZapr"
+            android:id="@+id/ProbegEdit"
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Пробег"
-            android:inputType="number"
+            android:editable="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Price" />
         <EditText
-            android:id="@+id/data"
+            android:id="@+id/dataEdit"
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:layout_marginStart="70dp"
             android:layout_marginTop="22dp"
             android:ems="10"
             android:hint="Дата заправки"
-            android:inputType="textMultiLine"
+            android:editable="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ProbegZapr"
+            app:layout_constraintStart_toEndOf="@+id/ProbegEdit"
             app:layout_constraintTop_toBottomOf="@+id/Price" />
     </LinearLayout>
 
@@ -163,7 +164,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/Comment"
+            android:id="@+id/commentEdit"
             android:layout_width="370dp"
             android:layout_height="150dp"
             android:layout_marginStart="10dp"
@@ -171,7 +172,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:hint="Комментарий"
-            android:inputType="textMultiLine"
+            android:editable="false"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="407dp" />
     </LinearLayout>
@@ -181,18 +182,36 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/EditZaprav"
+        android:id="@+id/EditZaprav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="10dp"
+        android:text="Изменить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentEdit">
+        </Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/deleteZapravka"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="120dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="120dp"
             android:layout_marginBottom="10dp"
-            android:text="Изменить"
+            android:text="Удалить"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Comment" />
-
+            app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
 </LinearLayout>
