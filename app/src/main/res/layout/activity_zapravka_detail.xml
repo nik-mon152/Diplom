@@ -165,12 +165,12 @@
         <EditText
             android:id="@+id/Comment"
             android:layout_width="370dp"
-            android:layout_height="45dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:ems="10"
             android:hint="Комментарий"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:inputType="textMultiLine"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="407dp" />

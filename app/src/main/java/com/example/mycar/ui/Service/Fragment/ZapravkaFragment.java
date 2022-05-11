@@ -15,6 +15,8 @@ import com.example.mycar.ui.Service.ModelZapravka.Adapter;
 import com.example.mycar.ui.Service.ModelZapravka.Zapravka;
 import com.example.mycar.R;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -29,6 +31,8 @@ public class ZapravkaFragment extends Fragment {
     ArrayList<Zapravka> zapravkaArrayList;
     FirebaseFirestore fstore;
     Adapter adapter;
+    FirebaseUser user;
+    FirebaseAuth fAuth;
 //    FirestoreRecyclerAdapter<Zapravka, ZapravkaViewHolder> zapravkaAdapter;
 
 
@@ -39,6 +43,8 @@ public class ZapravkaFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_zapravka, container, false);
 
         fstore = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
 
 
         zapravkaLists = v.findViewById(R.id.zapravralist);
@@ -46,7 +52,7 @@ public class ZapravkaFragment extends Fragment {
         zapravkaArrayList = new ArrayList<>();
         adapter = new Adapter(zapravkaArrayList);
         zapravkaLists.setAdapter(adapter);
-        fstore.collection("Zapravki").get()
+        fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {

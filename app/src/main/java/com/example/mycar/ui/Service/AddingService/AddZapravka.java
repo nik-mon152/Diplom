@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.example.mycar.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -35,6 +37,9 @@ public class AddZapravka extends AppCompatActivity {
     Button addZapravka;
     private String[] viewFuelStr = {"АИ-92", "АИ-95", "АИ-98", "АИ-100", "АИ-95+", "АИ-92+", "Дизель", "Метан", "Пропан"};
     FirebaseFirestore fstore;
+    FirebaseUser user;
+    FirebaseAuth fAuth;
+
 
 
 
@@ -46,6 +51,8 @@ public class AddZapravka extends AppCompatActivity {
         setTitle("Заправка");
 
         fstore = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+        user = fAuth.getCurrentUser();
 
 
         ArrayAdapter<String> viewFuelStrAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, viewFuelStr);
@@ -116,7 +123,7 @@ public class AddZapravka extends AppCompatActivity {
                     comment.setError("Введите данные в поле!!!");
                     return;
                 }
-                DocumentReference documentReference = fstore.collection("Zapravki").document();
+                DocumentReference documentReference = fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").document();
                 Map<String, Object> zapravka = new HashMap<>();
                 zapravka.put("view_Fuel", addfuel);
                 zapravka.put("fuel_quantity", addcol);
