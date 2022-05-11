@@ -26,19 +26,23 @@
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_add_zapravka.xml" value="0.25" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_edit_car.xml" value="0.25" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_edit_profile.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_edit_zapravka.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_info_servise.xml" value="0.25" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_registration.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_splash_screen.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_zapravka_detail.xml" value="0.1936725096194955" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_add_table.xml" value="0.25" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_autoservise.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_car.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_first.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_notifications.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_raskhody.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_second.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_service.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_servise_table.xml" value="0.16" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_zapravka.xml" value="0.22826086956521738" />

@@ -19,8 +19,6 @@ import android.widget.Toast;
 import com.example.mycar.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -28,7 +26,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class AddZapravka extends AppCompatActivity {
@@ -38,8 +35,7 @@ public class AddZapravka extends AppCompatActivity {
     Button addZapravka;
     private String[] viewFuelStr = {"АИ-92", "АИ-95", "АИ-98", "АИ-100", "АИ-95+", "АИ-92+", "Дизель", "Метан", "Пропан"};
     FirebaseFirestore fstore;
-    FirebaseUser user;
-    FirebaseAuth fAuth;
+
 
 
     @Override
@@ -49,11 +45,8 @@ public class AddZapravka extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Заправка");
 
-        fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
-        user = fAuth.getCurrentUser();
 
-        Intent intent = getIntent();
 
         ArrayAdapter<String> viewFuelStrAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, viewFuelStr);
         viewFuelStrAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -74,13 +67,6 @@ public class AddZapravka extends AppCompatActivity {
         data = findViewById(R.id.data);
         data.setText(dateText);
 
-        fuelView.getSelectedItem().toString();
-        count.setText(intent.getStringExtra("Litr"));
-        cumm.setText(intent.getStringExtra("Cumm"));
-        price.setText(intent.getStringExtra("Price"));
-        probeg.setText(intent.getStringExtra("Probeg"));
-        comment.setText(intent.getStringExtra("Comment"));
-        data.setText(intent.getStringExtra("Data"));
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -106,7 +92,7 @@ public class AddZapravka extends AppCompatActivity {
         count.addTextChangedListener(textWatcher);
         cumm.addTextChangedListener(textWatcher);
 
-        addZapravka = findViewById(R.id.AddZaprav);
+        addZapravka = findViewById(R.id.EditZaprav);
         addZapravka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,20 +116,21 @@ public class AddZapravka extends AppCompatActivity {
                     comment.setError("Введите данные в поле!!!");
                     return;
                 }
-                DocumentReference documentReference = fstore.collection("Zapravki").document(user.getUid());
+                DocumentReference documentReference = fstore.collection("Zapravki").document();
                 Map<String, Object> zapravka = new HashMap<>();
-                zapravka.put("View Fuel", addfuel);
-                zapravka.put("Fuel quantity", addcol);
-                zapravka.put("Refueling amount", addcumm);
-                zapravka.put("price per liter", addprice);
-                zapravka.put("Mileage", addprobeg);
-                zapravka.put("Comment", addcomment);
-                zapravka.put("Refueling date", adddata);
+                zapravka.put("view_Fuel", addfuel);
+                zapravka.put("fuel_quantity", addcol);
+                zapravka.put("refueling_amount", addcumm);
+                zapravka.put("price_liter", addprice);
+                zapravka.put("mileage", addprobeg);
+                zapravka.put("comment", addcomment);
+                zapravka.put("data", adddata);
             documentReference.set(zapravka).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
                     Toast.makeText(getApplicationContext(),"Данные о заправке добавлены!",Toast.LENGTH_SHORT).show();
                     onBackPressed();
+                    finish();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -163,7 +150,7 @@ public class AddZapravka extends AppCompatActivity {
         if (id == androidx.appcompat.R.id.action_bar){
             return true;
         }else if (id == android.R.id.home){
-            finish();
+            onBackPressed();
         }
         return super.onOptionsItemSelected(item);
     }

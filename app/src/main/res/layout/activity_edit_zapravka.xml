@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_vertical"
-    tools:context=".ui.Service.AddingService.AddZapravka">
+    tools:context=".ui.Service.AddingService.EditZapravka">
 
     <LinearLayout
         android:layout_width="match_parent"

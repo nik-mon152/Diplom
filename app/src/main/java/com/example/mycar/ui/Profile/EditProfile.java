@@ -142,7 +142,7 @@ public class EditProfile extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == androidx.appcompat.R.id.action_bar){
-            return true;
+            onBackPressed();
         }else if (id == android.R.id.home){
             finish();
         }

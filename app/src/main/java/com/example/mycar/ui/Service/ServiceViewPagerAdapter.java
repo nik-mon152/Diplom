@@ -26,7 +26,7 @@ public class ServiceViewPagerAdapter extends FragmentStatePagerAdapter {
             case 2:
                 return new ServiseTableFragment();
             default:
-                return null;
+                return new AddTableFragment();
         }
     }
 
