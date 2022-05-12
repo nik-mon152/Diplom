@@ -5,19 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mycar.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -25,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class EditZapravka extends AppCompatActivity {
     Button editZapravka;
@@ -40,6 +37,7 @@ public class EditZapravka extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_zapravka);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         setTitle("Изменение данных");
 
         ArrayAdapter<String> viewFuelStrAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, viewFuelStr);
@@ -53,8 +51,8 @@ public class EditZapravka extends AppCompatActivity {
 
         count = findViewById(R.id.countEdit);
         cumm = findViewById(R.id.cummEdit);
-        price = findViewById(R.id.Price);
-        probeg = findViewById(R.id.ProbegEdit);
+        price = findViewById(R.id.priceEdit);
+        probeg = findViewById(R.id.probegEdit);
         comment = findViewById(R.id.commentEdit);
         data = findViewById(R.id.dataEdit);
         editZapravka = findViewById(R.id.EditZaprav);
@@ -106,24 +104,24 @@ public class EditZapravka extends AppCompatActivity {
                 zapravka.put("mileage", addprobeg);
                 zapravka.put("comment", addcomment);
                 zapravka.put("data", adddata);
-                documentReference.update(zapravka).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()){
-
-                        }
-                    }
-                });
-
-
-//                    @Override
-//                    public void onSuccess(Void unused) {
-//                        Toast.makeText(getApplicationContext(),"Данные изменены!",Toast.LENGTH_SHORT).show();
-//
-//                        onBackPressed();
-//                        finish();
-//                    }
                 }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == androidx.appcompat.R.id.action_bar){
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    onBackPressed();
+                }
+            }, 10000);
+        }else if (id == android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

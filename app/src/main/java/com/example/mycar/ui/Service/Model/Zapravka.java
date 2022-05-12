@@ -1,4 +1,6 @@
-package com.example.mycar.ui.Service.ModelZapravka;
+package com.example.mycar.ui.Service.Model;
+
+import android.widget.EditText;
 
 public class Zapravka {
     private String view_Fuel;
@@ -10,8 +12,11 @@ public class Zapravka {
     private String data;
     String docId;
 
-    public Zapravka(){}
-    public Zapravka(String view_Fuel, String fuel_quantity, String refueling_amount, String price_liter, String mileage, String comment, String data){
+
+    public Zapravka(){
+    }
+
+    public Zapravka(String view_Fuel, String fuel_quantity, String refueling_amount, String price_liter, String mileage, String comment, String data) {
         this.view_Fuel = view_Fuel;
         this.fuel_quantity = fuel_quantity;
         this.refueling_amount = refueling_amount;
@@ -84,6 +89,5 @@ public class Zapravka {
     public void setData(String data) {
         this.data = data;
     }
-
 }
 

@@ -3,6 +3,7 @@ package com.example.mycar.ui.Service.AddingService;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -67,8 +68,8 @@ public class AddZapravka extends AppCompatActivity {
 
         count = findViewById(R.id.countEdit);
         cumm = findViewById(R.id.cummEdit);
-        price = findViewById(R.id.Price);
-        probeg = findViewById(R.id.ProbegEdit);
+        price = findViewById(R.id.priceEdit);
+        probeg = findViewById(R.id.probegEdit);
         comment = findViewById(R.id.commentEdit);
         data = findViewById(R.id.dataEdit);
         data.setText(dateText);
@@ -131,12 +132,13 @@ public class AddZapravka extends AppCompatActivity {
                 zapravka.put("mileage", addprobeg);
                 zapravka.put("comment", addcomment);
                 zapravka.put("data", adddata);
+                fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").document();
+
             documentReference.set(zapravka).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
-                    Toast.makeText(getApplicationContext(),"Данные о заправке добавлены!",Toast.LENGTH_SHORT).show();
                     onBackPressed();
-                    finish();
+                    Toast.makeText(getApplicationContext(),"Данные о заправке добавлены!",Toast.LENGTH_SHORT).show();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

@@ -116,11 +116,11 @@
             android:ems="10"
             android:hint="Сумма"
             android:inputType="phone"
-            app:layout_constraintEnd_toStartOf="@+id/Price"
+            app:layout_constraintEnd_toStartOf="@+id/priceEdit"
             app:layout_constraintStart_toEndOf="@+id/countEdit"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
         <EditText
-            android:id="@+id/Price"
+            android:id="@+id/priceEdit"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_marginEnd="27dp"
@@ -135,7 +135,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/ProbegEdit"
+            android:id="@+id/probegEdit"
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
@@ -144,7 +144,7 @@
             android:hint="Пробег"
             android:inputType="number"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Price" />
+            app:layout_constraintTop_toBottomOf="@+id/priceEdit" />
         <EditText
             android:id="@+id/dataEdit"
             android:layout_width="150dp"
@@ -155,8 +155,8 @@
             android:hint="Дата заправки"
             android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ProbegEdit"
-            app:layout_constraintTop_toBottomOf="@+id/Price" />
+            app:layout_constraintStart_toEndOf="@+id/probegEdit"
+            app:layout_constraintTop_toBottomOf="@+id/priceEdit" />
     </LinearLayout>
 
     <LinearLayout
@@ -190,7 +190,7 @@
             android:layout_marginTop="150dp"
             android:layout_marginEnd="120dp"
             android:layout_marginBottom="10dp"
-            android:text="Добавить"
+            android:text="Изменить"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
