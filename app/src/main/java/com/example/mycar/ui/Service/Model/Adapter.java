@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycar.R;
 import com.example.mycar.ui.Service.Details.ZapravkaDetail;
+import com.example.mycar.ui.Service.Fragment.ZapravkaFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,7 +28,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
@@ -104,7 +108,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()){
-                                            zapravkaArrayList.remove(zapravkaArrayList.get(position));
+                                            zapravkaArrayList.remove(position);
                                             notifyDataSetChanged();
                                         }
                                     }
@@ -147,13 +151,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
                 dataEdd.setText(zapravkaArrayList.get(position).getData());
                 commentEdd.setText(zapravkaArrayList.get(position).getComment());
 
-//                String viewFuelPut = viewFuelEdd.getText().toString();
-//                String count = countEdd.getText().toString();
-//                String cumm = cummEdd.getText().toString();
-//                String price = priceEdd.getText().toString();
-//                String probeg = probegEdd.getText().toString();
-//                String data = dataEdd.getText().toString();
-//                String comment = commentEdd.getText().toString();
 
                 dialogPlus.show();
 
@@ -170,23 +167,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
                         zapravkaEdd.put("data", dataEdd.getText().toString());
                         fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").document(documentId)
                                 .update(zapravkaEdd)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()){
-//                                            zapravkaArrayList.set(position, new Zapravka(viewFuelEdd,viewFuelEdd,viewFuelEdd,viewFuelEdd,viewFuelEdd,viewFuelEdd,viewFuelEdd));
-                                           notifyItemChanged(position);
-                                           dialogPlus.dismiss();
-                                        }
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(v.getContext(), "Обновите страницу чтобы применить изменения", Toast.LENGTH_SHORT).show();
+                                        notifyDataSetChanged();
+                                        dialogPlus.dismiss();
                                     }
                                 });
                     }
                 });
             }
         });
-
     }
-
 
     @Override
     public int getItemCount() {

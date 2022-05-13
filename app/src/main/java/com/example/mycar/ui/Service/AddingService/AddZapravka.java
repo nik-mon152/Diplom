@@ -16,9 +16,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.mycar.MainActivity;
 import com.example.mycar.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -123,7 +126,6 @@ public class AddZapravka extends AppCompatActivity {
                     comment.setError("Введите данные в поле!!!");
                     return;
                 }
-                DocumentReference documentReference = fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").document();
                 Map<String, Object> zapravka = new HashMap<>();
                 zapravka.put("view_Fuel", addfuel);
                 zapravka.put("fuel_quantity", addcol);
@@ -132,21 +134,21 @@ public class AddZapravka extends AppCompatActivity {
                 zapravka.put("mileage", addprobeg);
                 zapravka.put("comment", addcomment);
                 zapravka.put("data", adddata);
-                fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").document();
-
-            documentReference.set(zapravka).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    onBackPressed();
-                    Toast.makeText(getApplicationContext(),"Данные о заправке добавлены!",Toast.LENGTH_SHORT).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(getApplicationContext(),"Ошибка в добавлении данных!",Toast.LENGTH_SHORT).show();
-                    Log.d("Сообщение об ошибке ", "Данные не добавлены " + e.getMessage());
-                }
-            });
+                fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki")
+                        .add(zapravka)
+                        .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                Toast.makeText(AddZapravka.this, "Данные о заправке добавлены! Обновите страницу чтобы добавить информацию", Toast.LENGTH_SHORT).show();
+                                onBackPressed();
+                                finish();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(),"Ошибка в добавлении данных!",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

@@ -9,7 +9,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,19 +19,19 @@
             android:id="@+id/AddTable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Добавить" />
+            android:text="Заправка" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/Zaprav_table"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Заправка" />
+            android:text="Сервис" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/Service_table"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Сервис" />
+            android:text="Добавить" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager

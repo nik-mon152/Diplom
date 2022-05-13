@@ -1,8 +1,8 @@
 package com.example.mycar.ui.Service.Model;
 
-import android.widget.EditText;
+import java.io.Serializable;
 
-public class Zapravka {
+public class Zapravka implements Serializable {
     private String view_Fuel;
     private String fuel_quantity;
     private String refueling_amount;

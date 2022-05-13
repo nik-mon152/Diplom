@@ -18,7 +18,6 @@ import java.util.Objects;
 
 public class ZapravkaDetail extends AppCompatActivity {
 
-//    Button editZapravka, deleteZapravka;
     Intent zapravkaDetail;
     TextView fuelView, count, cumm, price, probeg, comment, data;
     FirebaseFirestore fstore;
@@ -40,7 +39,7 @@ public class ZapravkaDetail extends AppCompatActivity {
         probeg = findViewById(R.id.probegEdit);
         comment = findViewById(R.id.commentEdit);
         data = findViewById(R.id.dataEdit);
-//        editZapravka = findViewById(R.id.EditZaprav);
+
 
         fstore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
@@ -56,22 +55,6 @@ public class ZapravkaDetail extends AppCompatActivity {
         probeg.setText(zapravkaDetail.getStringExtra("Probeg"));
         comment.setText(zapravkaDetail.getStringExtra("Comment"));
         data.setText(zapravkaDetail.getStringExtra("Data"));
-        String docId = zapravkaDetail.getStringExtra("documentId");
-
-//        editZapravka.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(ZapravkaDetail.this, EditZapravka.class);
-//                intent.putExtra("Count", zapravkaDetail.getStringExtra("Litr"));
-//                intent.putExtra("Cumm", zapravkaDetail.getStringExtra("Cumm"));
-//                intent.putExtra("Price", zapravkaDetail.getStringExtra("Price"));
-//                intent.putExtra("Probeg", zapravkaDetail.getStringExtra("Probeg"));
-//                intent.putExtra("Comment", zapravkaDetail.getStringExtra("Comment"));
-//                intent.putExtra("Data", zapravkaDetail.getStringExtra("Data"));
-//                intent.putExtra("documentId", zapravkaDetail.getStringExtra("documentId"));
-//                startActivity(intent);
-//            }
-//        });
     }
 
     @Override

@@ -20,13 +20,13 @@ public class ServiceViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new AddTableFragment();
-            case 1:
                 return new ZapravkaFragment();
-            case 2:
+            case 1:
                 return new ServiseTableFragment();
-            default:
+            case 2:
                 return new AddTableFragment();
+            default:
+                return new ZapravkaFragment();
         }
     }
 
@@ -40,13 +40,13 @@ public class ServiceViewPagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0:
-                return "Добавить";
-            case 1:
                 return "Заправка";
-            case 2:
+            case 1:
                 return "Сервис";
-            default:
+            case 2:
                 return "Добавить";
+            default:
+                return "Заправка";
         }
     }
 }

@@ -3,7 +3,8 @@ package com.example.mycar.ui.Service.Fragment;
 
 
 
-import android.content.Intent;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +16,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.mycar.ui.Service.AddingService.AddZapravka;
 import com.example.mycar.ui.Service.Model.Adapter;
 import com.example.mycar.ui.Service.Model.Zapravka;
 import com.example.mycar.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,7 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ZapravkaFragment extends Fragment {
+public class ZapravkaFragment extends Fragment{
 
     RecyclerView zapravkaLists;
     List<Zapravka> zapravkaArrayList;
@@ -41,14 +44,20 @@ public class ZapravkaFragment extends Fragment {
     Adapter adapter;
     FirebaseUser user;
     FirebaseAuth fAuth;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_zapravka, container, false);
 
+
+
         fstore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
+
+        swipeRefreshLayout = v.findViewById(R.id.update);
+        swipeRefreshLayout.setColorSchemeColors(Color.RED, Color.GREEN, Color.BLUE, Color.CYAN);
 
 
         zapravkaLists = v.findViewById(R.id.zapravralist);
@@ -68,10 +77,46 @@ public class ZapravkaFragment extends Fragment {
                                 zapravka.setDocId(docId);
                                 zapravkaArrayList.add(zapravka);
                                 adapter.notifyDataSetChanged();
+                                swipeRefreshLayout.setRefreshing(false);
                             }
                         }
                     }
                 });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                zapravkaLists.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
+                                zapravkaArrayList = new ArrayList<>();
+                                adapter = new Adapter(zapravkaArrayList);
+                                zapravkaLists.setAdapter(adapter);
+                                fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").orderBy("view_Fuel", Query.Direction.DESCENDING).get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()){
+                                                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()){
+                                                        String docId = documentSnapshot.getId();
+                                                        Zapravka zapravka = documentSnapshot.toObject(Zapravka.class);
+                                                        assert zapravka != null;
+                                                        zapravka.setDocId(docId);
+                                                        zapravkaArrayList.add(zapravka);
+                                                        adapter.notifyDataSetChanged();
+                                                        swipeRefreshLayout.setRefreshing(false);
+                                                    }
+                                                }
+                                            }
+                                        });
+                                adapter.notifyDataSetChanged();
+                                swipeRefreshLayout.setRefreshing(false);
+                            }
+                        });
+            }
+        });
         return v;
     }
 
