@@ -17,9 +17,6 @@
             android:name=".ui.Service.Details.ZapravkaDetail"
             android:exported="false" />
         <activity
-            android:name=".ui.Service.AddingService.EditZapravka"
-            android:exported="false" />
-        <activity
             android:name=".ui.Service.InfoServise"
             android:exported="false" />
         <activity

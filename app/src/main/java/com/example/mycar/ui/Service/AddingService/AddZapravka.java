@@ -2,6 +2,10 @@ package com.example.mycar.ui.Service.AddingService;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.mycar.MainActivity;
 import com.example.mycar.R;
+import com.example.mycar.ui.Service.ServiceFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,9 +47,7 @@ public class AddZapravka extends AppCompatActivity {
     FirebaseFirestore fstore;
     FirebaseUser user;
     FirebaseAuth fAuth;
-
-
-
+    AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

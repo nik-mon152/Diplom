@@ -10,7 +10,9 @@ import com.example.mycar.ui.Service.Fragment.AddTableFragment;
 import com.example.mycar.ui.Service.Fragment.ServiseTableFragment;
 import com.example.mycar.ui.Service.Fragment.ZapravkaFragment;
 
-public class ServiceViewPagerAdapter extends FragmentStatePagerAdapter {
+import java.io.Serializable;
+
+public class ServiceViewPagerAdapter extends FragmentStatePagerAdapter implements Serializable {
     public ServiceViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }

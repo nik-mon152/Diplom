@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -19,11 +20,13 @@ import com.example.mycar.ui.Car.AddCar;
 import com.example.mycar.ui.Service.AddingService.AddService;
 import com.example.mycar.ui.Service.AddingService.AddZapravka;
 import com.example.mycar.ui.Service.InfoServise;
+import com.example.mycar.ui.Service.ServiceViewPagerAdapter;
 
 public class AddTableFragment extends Fragment {
 
     TextView textZapravki, textService, textInfo;
     ImageView imgZapravki, imgService, imgInfo;
+    ViewPager viewPager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,7 +43,8 @@ public class AddTableFragment extends Fragment {
         textZapravki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(v.getContext(), AddZapravka.class));
+
+//                startActivity(new Intent(v.getContext(), AddZapravka.class));
             }
         });
         imgZapravki.setOnClickListener(new View.OnClickListener() {
