@@ -174,7 +174,6 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.viewho
                 });
             }
         });
-
     }
 
     @Override

@@ -68,11 +68,6 @@ public class ZapravkaFragment extends Fragment{
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
 
-//        ArrayAdapter<String> viewFuelStrAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, viewFuelStr);
-//        viewFuelStrAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        Spinner fuelView = v.findViewById(R.id.viewFuelAdd);
-//        fuelView.setAdapter(viewFuelStrAdapter);
-
         fab = v.findViewById(R.id.add);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

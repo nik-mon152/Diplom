@@ -87,9 +87,15 @@ public class ProfileFragment extends Fragment {
         userId = fAuth.getCurrentUser().getUid();
         user = fAuth.getCurrentUser();
 
+        resetPasswd = v.findViewById(R.id.btnChangePasswd);
+        changeProfile = v.findViewById(R.id.btnChangeProfile);
+
         if(!user.isEmailVerified()){
             verMsg.setVisibility(v.VISIBLE);
             verEmail.setVisibility(v.VISIBLE);
+            resetPasswd.setVisibility(v.INVISIBLE);
+            changeProfile.setVisibility(v.INVISIBLE);
+
 
             verEmail.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -109,7 +115,7 @@ public class ProfileFragment extends Fragment {
                 }
             });
         }
-        resetPasswd = v.findViewById(R.id.btnChangePasswd);
+
         resetPasswd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -174,7 +180,7 @@ public class ProfileFragment extends Fragment {
                 getActivity().finish();
             }
         });
-        changeProfile = v.findViewById(R.id.btnChangeProfile);
+
         changeProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -39,7 +39,6 @@ public class AddZapravka extends AppCompatActivity {
     FirebaseFirestore fstore;
     FirebaseUser user;
     FirebaseAuth fAuth;
-    AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
