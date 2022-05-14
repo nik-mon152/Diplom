@@ -2,16 +2,11 @@ package com.example.mycar.ui.Service.AddingService;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,12 +15,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.mycar.MainActivity;
 import com.example.mycar.R;
-import com.example.mycar.ui.Service.ServiceFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -63,7 +55,7 @@ public class AddZapravka extends AppCompatActivity {
 
         ArrayAdapter<String> viewFuelStrAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, viewFuelStr);
         viewFuelStrAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        fuelView = findViewById(R.id.viewFuel);
+        fuelView = findViewById(R.id.viewFuelAdd);
         fuelView.setAdapter(viewFuelStrAdapter);
         fuelView.setPrompt("Выберите вид топлива");
 
@@ -72,12 +64,12 @@ public class AddZapravka extends AppCompatActivity {
         String dateText = dateFormat.format(currentDate);
 
 
-        count = findViewById(R.id.countEdit);
-        cumm = findViewById(R.id.cummEdit);
-        price = findViewById(R.id.priceEdit);
-        probeg = findViewById(R.id.probegEdit);
-        comment = findViewById(R.id.commentEdit);
-        data = findViewById(R.id.dataEdit);
+        count = findViewById(R.id.countAdd);
+        cumm = findViewById(R.id.cummAdd);
+        price = findViewById(R.id.priceAdd);
+        probeg = findViewById(R.id.probegAdd);
+        comment = findViewById(R.id.commentAdd);
+        data = findViewById(R.id.dataAdd);
         data.setText(dateText);
 
 
@@ -105,7 +97,7 @@ public class AddZapravka extends AppCompatActivity {
         count.addTextChangedListener(textWatcher);
         cumm.addTextChangedListener(textWatcher);
 
-        addZapravka = findViewById(R.id.EditZaprav);
+        addZapravka = findViewById(R.id.addZaprav);
         addZapravka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

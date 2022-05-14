@@ -32,13 +32,13 @@ public class ZapravkaDetail extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         setTitle("Просмотр данных");
 
-        fuelView = findViewById(R.id.viewFuel);
-        count = findViewById(R.id.countEdit);
-        cumm = findViewById(R.id.cummEdit);
-        price = findViewById(R.id.priceEdit);
-        probeg = findViewById(R.id.probegEdit);
-        comment = findViewById(R.id.commentEdit);
-        data = findViewById(R.id.dataEdit);
+        fuelView = findViewById(R.id.viewFuelAdd);
+        count = findViewById(R.id.countAdd);
+        cumm = findViewById(R.id.cummAdd);
+        price = findViewById(R.id.priceAdd);
+        probeg = findViewById(R.id.probegAdd);
+        comment = findViewById(R.id.commentAdd);
+        data = findViewById(R.id.dataAdd);
 
 
         fstore = FirebaseFirestore.getInstance();

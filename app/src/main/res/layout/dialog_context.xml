@@ -15,7 +15,7 @@
     </TextView>
 
     <EditText
-        android:id="@+id/viewFuel"
+        android:id="@+id/viewFuelAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Вид топлива">
@@ -23,7 +23,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/countEdit"
+        android:id="@+id/countAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -31,7 +31,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/cummEdit"
+        android:id="@+id/cummAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -39,7 +39,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/priceEdit"
+        android:id="@+id/priceAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -47,7 +47,7 @@
     </EditText>
 
     <EditText
-        android:id="@+id/probegEdit"
+        android:id="@+id/probegAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -55,14 +55,14 @@
     </EditText>
 
     <EditText
-        android:id="@+id/dataEdit"
+        android:id="@+id/dataAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:hint="Дата запраавки">
     </EditText>
     <EditText
-        android:id="@+id/commentEdit"
+        android:id="@+id/commentAdd"
         android:maxLength="500"
         android:layout_width="match_parent"
         android:layout_height="100dp"

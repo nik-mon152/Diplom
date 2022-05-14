@@ -20,18 +20,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycar.R;
 import com.example.mycar.ui.Service.Details.ZapravkaDetail;
-import com.example.mycar.ui.Service.Fragment.ZapravkaFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
@@ -39,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
+public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.viewholder> {
 
     Context context;
     List<Zapravka> zapravkaArrayList;
@@ -48,7 +43,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
     FirebaseAuth fAuth;
 
 
-    public Adapter(List<Zapravka> zapravkaArrayList) {
+    public AdapterZapravka(List<Zapravka> zapravkaArrayList) {
         this.context = context;
         this.zapravkaArrayList = zapravkaArrayList;
         fstore = FirebaseFirestore.getInstance();
@@ -133,13 +128,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
                         .create();
 
                 View contentView = dialogPlus.getHolderView();
-                EditText viewFuelEdd = contentView.findViewById(R.id.viewFuel);
-                EditText countEdd = contentView.findViewById(R.id.countEdit);
-                EditText cummEdd = contentView.findViewById(R.id.cummEdit);
-                EditText priceEdd = contentView.findViewById(R.id.priceEdit);
-                EditText probegEdd = contentView.findViewById(R.id.probegEdit);
-                EditText dataEdd = contentView.findViewById(R.id.dataEdit);
-                EditText commentEdd = contentView.findViewById(R.id.commentEdit);
+                EditText viewFuelEdd = contentView.findViewById(R.id.viewFuelAdd);
+                EditText countEdd = contentView.findViewById(R.id.countAdd);
+                EditText cummEdd = contentView.findViewById(R.id.cummAdd);
+                EditText priceEdd = contentView.findViewById(R.id.priceAdd);
+                EditText probegEdd = contentView.findViewById(R.id.probegAdd);
+                EditText dataEdd = contentView.findViewById(R.id.dataAdd);
+                EditText commentEdd = contentView.findViewById(R.id.commentAdd);
                 Button btnEdd = contentView.findViewById(R.id.btnEdit);
 
 
@@ -179,6 +174,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
                 });
             }
         });
+
     }
 
     @Override
@@ -188,6 +184,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
 
     class viewholder extends RecyclerView.ViewHolder{
         TextView fuelList, cummList, litrList, priceList, probegList, commentList, dataList;
+        FloatingActionButton add;
         ImageButton deleteItem, updateItem;
         public viewholder(@NonNull View itemView) {
             super(itemView);
@@ -199,6 +196,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
             commentList = itemView.findViewById(R.id.commentList);
             dataList = itemView.findViewById(R.id.dataList);
             deleteItem = itemView.findViewById(R.id.deleteItem);
+            add = itemView.findViewById(R.id.add);
             updateItem = itemView.findViewById(R.id.updateItem);
         }
     }

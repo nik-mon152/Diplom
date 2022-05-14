@@ -8,7 +8,7 @@
     tools:context=".ui.Car.AddCar">
 
     <EditText
-        android:id="@+id/countEdit"
+        android:id="@+id/countAdd"
         android:layout_width="170dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -43,7 +43,7 @@
         android:inputType="phone"
         app:layout_constraintEnd_toStartOf="@+id/ViewFuel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/countAdd" />
 
     <EditText
         android:id="@+id/AddProbeg"

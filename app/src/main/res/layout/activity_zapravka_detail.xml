@@ -45,7 +45,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/viewFuel"
+            android:id="@+id/viewFuelAdd"
             android:layout_width="377dp"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
@@ -69,7 +69,7 @@
             android:text="Количество, л"
             app:layout_constraintEnd_toStartOf="@+id/textView13"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewFuel" />
+            app:layout_constraintTop_toBottomOf="@+id/viewFuelAdd" />
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
             android:layout_marginEnd="59dp"
             android:text="Сумма, ₽"
             app:layout_constraintEnd_toStartOf="@+id/textView14"
-            app:layout_constraintTop_toBottomOf="@+id/viewFuel" />
+            app:layout_constraintTop_toBottomOf="@+id/viewFuelAdd" />
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
             android:layout_marginEnd="37dp"
             android:text="Цена ₽/л"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewFuel" />
+            app:layout_constraintTop_toBottomOf="@+id/viewFuelAdd" />
 
     </LinearLayout>
     <LinearLayout
@@ -96,7 +96,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/countEdit"
+            android:id="@+id/countAdd"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
@@ -107,7 +107,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageView12"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
         <EditText
-            android:id="@+id/cummEdit"
+            android:id="@+id/cummAdd"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_marginStart="20dp"
@@ -115,11 +115,11 @@
             android:ems="10"
             android:hint="Сумма"
             android:editable="false"
-            app:layout_constraintEnd_toStartOf="@+id/priceEdit"
-            app:layout_constraintStart_toEndOf="@+id/countEdit"
+            app:layout_constraintEnd_toStartOf="@+id/priceAdd"
+            app:layout_constraintStart_toEndOf="@+id/countAdd"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
         <EditText
-            android:id="@+id/priceEdit"
+            android:id="@+id/priceAdd"
             android:layout_width="100dp"
             android:layout_height="45dp"
             android:layout_marginEnd="27dp"
@@ -134,7 +134,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
         <EditText
-            android:id="@+id/probegEdit"
+            android:id="@+id/probegAdd"
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
@@ -143,9 +143,9 @@
             android:hint="Пробег"
             android:editable="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/priceEdit" />
+            app:layout_constraintTop_toBottomOf="@+id/priceAdd" />
         <EditText
-            android:id="@+id/dataEdit"
+            android:id="@+id/dataAdd"
             android:layout_width="150dp"
             android:layout_height="45dp"
             android:layout_marginStart="70dp"
@@ -154,8 +154,8 @@
             android:hint="Дата заправки"
             android:editable="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/probegEdit"
-            app:layout_constraintTop_toBottomOf="@+id/priceEdit" />
+            app:layout_constraintStart_toEndOf="@+id/probegAdd"
+            app:layout_constraintTop_toBottomOf="@+id/priceAdd" />
     </LinearLayout>
 
     <LinearLayout
@@ -164,7 +164,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/commentEdit"
+            android:id="@+id/commentAdd"
             android:layout_width="370dp"
             android:layout_height="150dp"
             android:layout_marginStart="10dp"

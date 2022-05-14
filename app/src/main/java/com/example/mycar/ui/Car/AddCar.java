@@ -77,7 +77,7 @@ public class AddCar extends AppCompatActivity {
         viewFuelAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         bar = findViewById(R.id.progressBarAdd);
-        addmarka = findViewById(R.id.countEdit);
+        addmarka = findViewById(R.id.countAdd);
         addmodel = findViewById(R.id.AddModel);
         addage = findViewById(R.id.AddAgeCar);
         addprobeg = findViewById(R.id.AddProbeg);
