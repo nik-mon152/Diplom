@@ -102,9 +102,9 @@ public class AddService extends AppCompatActivity {
                 }
 
                 Map<String, Object> service = new HashMap<>();
-                service.put("view_Fuel", addViewWork);
+                service.put("view_Servise", addViewWork);
                 service.put("name_work", addNameWork);
-                service.put("addAdress", addAdress);
+                service.put("adress", addAdress);
                 service.put("price_servise", addprice);
                 service.put("mileage", addprobeg);
                 service.put("comment", addcomment);

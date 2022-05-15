@@ -57,7 +57,6 @@ public class ZapravkaFragment extends Fragment{
     FirebaseUser user;
     FirebaseAuth fAuth;
     SwipeRefreshLayout swipeRefreshLayout;
-    private String[] viewFuelStr = {"АИ-92", "АИ-95", "АИ-98", "АИ-100", "АИ-95+", "АИ-92+", "Дизель", "Метан", "Пропан"};
     FloatingActionButton fab;
 
     @Override
@@ -83,6 +82,7 @@ public class ZapravkaFragment extends Fragment{
 
         zapravkaLists = v.findViewById(R.id.zapravralist);
         zapravkaLists.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
+
         zapravkaArrayList = new ArrayList<>();
         adapterZapravka = new AdapterZapravka(zapravkaArrayList);
         zapravkaLists.setAdapter(adapterZapravka);

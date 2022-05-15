@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/corners_radius"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green"
+        android:background="@drawable/corners_radius"
+        android:backgroundTint="@color/green"
         android:gravity="center_horizontal"
         android:text="Изменение данных"
         android:textColor="@color/black"
@@ -15,39 +17,39 @@
     </TextView>
 
     <EditText
-        android:id="@+id/viewFuelAdd"
+        android:id="@+id/name_workEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Вид топлива">
+        android:hint="Название работ">
 
     </EditText>
 
     <EditText
-        android:id="@+id/countAdd"
+        android:id="@+id/view_ServiseEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Количество литров">
+        android:inputType="text"
+        android:hint="Вид работ">
     </EditText>
 
     <EditText
-        android:id="@+id/cummAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Стоимость заправки">
-    </EditText>
-
-    <EditText
-        android:id="@+id/priceAdd"
+        android:id="@+id/price_serviseEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="Цена за литр">
+        android:hint="Стоимость ремонта">
     </EditText>
 
     <EditText
-        android:id="@+id/probegAdd"
+        android:id="@+id/adressEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Адресс сервиса">
+    </EditText>
+
+    <EditText
+        android:id="@+id/probegEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -55,14 +57,14 @@
     </EditText>
 
     <EditText
-        android:id="@+id/dataAdd"
+        android:id="@+id/dataEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:hint="Дата запраавки">
     </EditText>
     <EditText
-        android:id="@+id/commentAdd"
+        android:id="@+id/commentEdit"
         android:maxLength="500"
         android:layout_width="match_parent"
         android:layout_height="100dp"

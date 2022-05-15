@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/zapravkaCard"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Название работ: "
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/name_workList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" work"
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вид работ: "
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/view_workList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" work "
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="                  "
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Сумма: "
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/cummservList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" cumm"
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Адрес сервиса: "
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/adressList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" adress"
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Пробег: "
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:id="@+id/prodegList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" prodeg"
+            android:textColor="@color/black"
+            android:textSize="18dp">
+        </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="                  "
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Дата: "
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/dataList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" date"
+                android:textColor="@color/black"
+                android:textSize="18dp">
+            </TextView>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Комментарий"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/commentList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" comment"
+                android:textColor="@color/black"
+                android:textSize="18dp">
+
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <ImageButton
+                android:id="@+id/deleteItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_restore_from_trash">
+            </ImageButton>
+
+            <Space
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/updateItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_update">
+            </ImageButton>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
