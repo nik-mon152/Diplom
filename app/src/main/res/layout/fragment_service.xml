@@ -31,7 +31,7 @@
             android:id="@+id/Service_table"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Добавить" />
+            android:text="О сервисе" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager

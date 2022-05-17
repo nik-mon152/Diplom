@@ -46,7 +46,7 @@ public class ServiceViewPagerAdapter extends FragmentStatePagerAdapter implement
             case 1:
                 return "Сервис";
             case 2:
-                return "Добавить";
+                return "О сервисе";
             default:
                 return "Заправка";
         }

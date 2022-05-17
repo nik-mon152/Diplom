@@ -90,7 +90,7 @@ public class ProfileFragment extends Fragment {
         resetPasswd = v.findViewById(R.id.btnChangePasswd);
         changeProfile = v.findViewById(R.id.btnChangeProfile);
 
-        if(!user.isEmailVerified()){
+        if(user.isEmailVerified()){
             verMsg.setVisibility(v.VISIBLE);
             verEmail.setVisibility(v.VISIBLE);
             resetPasswd.setVisibility(v.INVISIBLE);

@@ -1,9 +1,5 @@
 package com.example.mycar.ui.Service.Fragment;
 
-
-
-
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -72,13 +68,11 @@ public class ZapravkaFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), AddZapravka.class));
-
             }
         });
 
         swipeRefreshLayout = v.findViewById(R.id.update);
         swipeRefreshLayout.setColorSchemeColors(Color.RED, Color.GREEN, Color.BLUE, Color.CYAN);
-
 
         zapravkaLists = v.findViewById(R.id.zapravralist);
         zapravkaLists.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));

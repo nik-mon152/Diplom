@@ -8,6 +8,7 @@
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1795" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/corners_radius.xml" value="0.1855" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/custom_input.xml" value="0.1795" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_add_black.xml" value="0.174" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_add_black_.xml" value="0.1985" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_account_circle.xml" value="0.1" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_alternate_email.xml" value="0.1795" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_local_drink.xml" value="0.1795" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_lock.xml" value="0.1795" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_phone.xml" value="0.1795" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_restore_from_trash.xml" value="0.174" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_baseline_score_24.xml" value="0.1795" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1795" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1795" />
@@ -33,6 +35,7 @@
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_info_servise.xml" value="0.25" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_notification_add.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_registration.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_servise_detail.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/activity_splash_screen.xml" value="0.22826086956521738" />
@@ -54,6 +57,7 @@
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_service.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_servise_table.xml" value="0.16" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/fragment_zapravka.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/notification_view_layout.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/servise_view_layout.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/layout/zapravka_view_layout.xml" value="0.25" />
         <entry key="..\:/Users/Limonchik/AndroidStudioProjects/MyCar/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,10 +68,14 @@ public class AdapterServise extends RecyclerView.Adapter<AdapterServise.viewhold
         holder.commentList.setText(serviseList.get(position).getComment());
         holder.dataList.setText(serviseList.get(position).getData());
         String documentId = serviseList.get(position).getDocId();
+        int i = Integer.parseInt(serviseList.get(position).getPrice_servise());
+        int cummint = Integer.parseInt(serviseList.get(position).getPrice_servise()) + 1000;
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(v.getContext(), ServiseDetail.class);
                 intent.putExtra("View_Servise", serviseList.get(position).getView_Servise());
                 intent.putExtra("Name_work", serviseList.get(position).getName_work());
@@ -81,6 +86,7 @@ public class AdapterServise extends RecyclerView.Adapter<AdapterServise.viewhold
                 intent.putExtra("Data", serviseList.get(position).getData());
                 intent.putExtra("documentId", documentId);
                 v.getContext().startActivity(intent);
+                Log.e("Число", "" + i);
             }
         });
 
@@ -122,6 +128,7 @@ public class AdapterServise extends RecyclerView.Adapter<AdapterServise.viewhold
                         .setContentHolder(new ViewHolder(R.layout.dialog_servise))
                         .setExpanded(true, 1300)
                         .create();
+
 
                 View contentView = dialogPlus.getHolderView();
                 EditText view_Servise = contentView.findViewById(R.id.view_ServiseEdit);
@@ -176,6 +183,7 @@ public class AdapterServise extends RecyclerView.Adapter<AdapterServise.viewhold
     public int getItemCount() {
         return serviseList.size();
     }
+
     class viewholder extends RecyclerView.ViewHolder{
         TextView view_ServiseList, name_workList, adressList, price_serviseList, probegList, commentList, dataList;
         ImageButton deleteItem, updateItem;
