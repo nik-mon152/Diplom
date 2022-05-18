@@ -5,7 +5,7 @@ public class Notification {
     private String work_notif;
     private String adress_notif;
     private String price_notif;
-    private String probeg_notif;
+    private int probeg_notif;
     private String comment_notif;
     String docId;
 
@@ -13,7 +13,7 @@ public class Notification {
 
     }
 
-    public Notification(String view_work_notif, String work_notif, String adress_notif, String price_notif, String probeg_notif, String comment_notif) {
+    public Notification(String view_work_notif, String work_notif, String adress_notif, String price_notif, int probeg_notif, String comment_notif) {
         this.view_work_notif = view_work_notif;
         this.work_notif = work_notif;
         this.adress_notif = adress_notif;
@@ -54,11 +54,11 @@ public class Notification {
         this.price_notif = price_notif;
     }
 
-    public String getProbeg_notif() {
+    public int getProbeg_notif() {
         return probeg_notif;
     }
 
-    public void setProbeg_notif(String probeg_notif) {
+    public void setProbeg_notif(int probeg_notif) {
         this.probeg_notif = probeg_notif;
     }
 

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -54,6 +55,7 @@ public class ZapravkaFragment extends Fragment{
     FirebaseAuth fAuth;
     SwipeRefreshLayout swipeRefreshLayout;
     FloatingActionButton fab;
+    TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,6 +64,8 @@ public class ZapravkaFragment extends Fragment{
         fstore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
+        textView = v.findViewById(R.id.total);
+
 
         fab = v.findViewById(R.id.add);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +98,7 @@ public class ZapravkaFragment extends Fragment{
                                 adapterZapravka.notifyDataSetChanged();
                                 swipeRefreshLayout.setRefreshing(false);
                             }
+                            calculateTotal(zapravkaArrayList);
                         }
                     }
                 });
@@ -123,6 +128,7 @@ public class ZapravkaFragment extends Fragment{
                                                         adapterZapravka.notifyDataSetChanged();
                                                         swipeRefreshLayout.setRefreshing(false);
                                                     }
+                                                    calculateTotal(zapravkaArrayList);
                                                 }
                                             }
                                         });
@@ -133,6 +139,15 @@ public class ZapravkaFragment extends Fragment{
             }
         });
         return v;
+    }
+
+    private void calculateTotal(List<Zapravka> zapravkaArrayList) {
+        int total = 0;
+        for (Zapravka zapravka : zapravkaArrayList){
+            total += zapravka.getRefueling_amount();
+        }
+        textView.setText("Всего: "+total);
+
     }
 
 }

@@ -130,7 +130,7 @@ public class AddCar extends AppCompatActivity {
                 String marka = addmarka.getText().toString();
                 String model = addmodel.getText().toString();
                 String age = addage.getText().toString();
-                String probeg = addprobeg.getText().toString();
+                int probeg = Integer.parseInt(addprobeg.getText().toString());
                 String viewCar = addviewCar.getSelectedItem().toString();
                 String viewFuel = addviewFuel.getSelectedItem().toString();
 
@@ -146,7 +146,7 @@ public class AddCar extends AppCompatActivity {
                     addage.setError("Введите свое полное имя!!!");
                     return;
                 }
-                if(probeg.isEmpty()){
+                if(probeg == 0){
                     addprobeg.setError("Введите свое полное имя!!!");
                     return;
                 }

@@ -75,8 +75,7 @@ public class NotificationAdd extends AppCompatActivity {
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 if (documentSnapshot != null) {
                     if(documentSnapshot.exists()){
-
-                        probegn.setText(documentSnapshot.getString("Mileage"));
+                        probegn.setText(documentSnapshot.getLong("Mileage").intValue() + "");
                     }else{
                         Log.d("Сообщение об ошибке", "Ошибка в документе");
                     }
@@ -106,7 +105,7 @@ public class NotificationAdd extends AppCompatActivity {
                 String name = work.getText().toString();
                 String adress = adressn.getText().toString();
                 String price = cumm.getText().toString();
-                String probeg = probegn.getText().toString();
+                int probeg = Integer.parseInt(probegn.getText().toString());
                 String comment = commentn.getText().toString();
 
                 if(name.isEmpty()){
@@ -121,7 +120,7 @@ public class NotificationAdd extends AppCompatActivity {
                     cumm.setError("Введите свое поле!!!");
                     return;
                 }
-                if(probeg.isEmpty()){
+                if(probeg == 0){
                     probegn.setError("Введите свое поле!!!");
                     return;
                 }

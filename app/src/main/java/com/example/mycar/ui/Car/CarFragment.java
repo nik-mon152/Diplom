@@ -75,7 +75,7 @@ public class CarFragment extends Fragment {
                     if(documentSnapshot.exists()){
                         markaModel.setText("Тс: " + documentSnapshot.getString("Marka") + " " + documentSnapshot.getString("Model"));
                         age.setText("Год выпуска: " + documentSnapshot.getString("Year of issue") + " год");
-                        probeg.setText("Пробег: " + documentSnapshot.getString("Mileage") + " км.");
+                        probeg.setText("Пробег: " + documentSnapshot.getLong("Mileage").intValue() + " км.");
                         fuel.setText("Вид топлива: " + documentSnapshot.getString("Type of fuel"));
                     }else{
                         Log.d("Сообщение об ошибке", "Ошибка в документе");

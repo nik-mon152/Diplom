@@ -80,10 +80,9 @@ public class AddZapravka extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (!count.getText().toString().isEmpty() && !cumm.getText().toString().isEmpty() && !cumm.getText().toString().isEmpty()) {
+                if (!count.getText().toString().isEmpty() && !cumm.getText().toString().isEmpty()) {
                     int temp1 = Integer.parseInt(count.getText().toString());
-                    int temp2 = Integer.parseInt(cumm.getText().toString());
-
+                    double temp2 = Integer.parseInt(cumm.getText().toString());
                     price.setText(String.valueOf(temp2 / temp1));
                 }
             }
@@ -102,9 +101,9 @@ public class AddZapravka extends AppCompatActivity {
             public void onClick(View view) {
                 String addfuel = fuelView.getSelectedItem().toString();
                 String addcol = count.getText().toString();
-                String addcumm = cumm.getText().toString();
+                int addcumm = Integer.parseInt(cumm.getText().toString());
                 String addprice = price.getText().toString();
-                String addprobeg = probeg.getText().toString();
+                int addprobeg =Integer.parseInt(probeg.getText().toString());
                 String addcomment = comment.getText().toString();
                 String adddata = data.getText().toString();
 
@@ -112,7 +111,7 @@ public class AddZapravka extends AppCompatActivity {
                     count.setError("Введите данные в поле!!!");
                     return;
                 }
-                if(addcumm.isEmpty()){
+                if(addcumm == 0){
                     cumm.setError("Введите данные в поле!!!");
                     return;
                 }

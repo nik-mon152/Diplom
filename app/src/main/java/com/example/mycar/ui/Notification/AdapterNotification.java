@@ -1,7 +1,12 @@
 package com.example.mycar.ui.Notification;
 
+import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +14,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycar.R;
@@ -17,7 +25,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.List;
 
@@ -28,6 +40,9 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
     FirebaseFirestore fstore;
     FirebaseUser user;
     FirebaseAuth fAuth;
+    String userId;
+    String prob;
+
 
     public AdapterNotification(List<Notification> notificationList) {
         this.context = context;
@@ -35,6 +50,8 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
         fstore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
+        userId = fAuth.getCurrentUser().getUid();
+
     }
 
     @NonNull
@@ -45,7 +62,7 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
     }
 
     @Override
-    public void onBindViewHolder(@NonNull viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull viewholder holder, @SuppressLint("RecyclerView") int position) {
         holder.name_work_notifList.setText(notificationList.get(position).getWork_notif());
         holder.work_notifList.setText(notificationList.get(position).getView_work_notif());
         holder.price_notifList.setText(notificationList.get(position).getPrice_notif() + " ₽");
@@ -53,6 +70,7 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
         holder.probeg_notifList.setText(notificationList.get(position).getProbeg_notif() + " км");
         holder.comment_notifList.setText(notificationList.get(position).getComment_notif());
         String documentId = notificationList.get(position).getDocId();
+
 
         holder.deleteItem.setOnClickListener(new View.OnClickListener() {
             @Override

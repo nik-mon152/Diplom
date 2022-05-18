@@ -154,9 +154,9 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.viewho
                         Map<String, Object> zapravkaEdd = new HashMap<>();
                         zapravkaEdd.put("view_Fuel", viewFuelEdd.getText().toString());
                         zapravkaEdd.put("fuel_quantity", countEdd.getText().toString());
-                        zapravkaEdd.put("refueling_amount", cummEdd.getText().toString());
+                        zapravkaEdd.put("refueling_amount", Integer.parseInt(cummEdd.getText().toString()));
                         zapravkaEdd.put("price_liter", priceEdd.getText().toString());
-                        zapravkaEdd.put("mileage", probegEdd.getText().toString());
+                        zapravkaEdd.put("mileage",Integer.parseInt(probegEdd.getText().toString()));
                         zapravkaEdd.put("comment", commentEdd.getText().toString());
                         zapravkaEdd.put("data", dataEdd.getText().toString());
                         fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").document(documentId)

@@ -5,9 +5,9 @@ import java.io.Serializable;
 public class Zapravka implements Serializable {
     private String view_Fuel;
     private String fuel_quantity;
-    private String refueling_amount;
+    private int refueling_amount;
     private String price_liter;
-    private String mileage;
+    private int mileage;
     private String comment;
     private String data;
     String docId;
@@ -16,7 +16,7 @@ public class Zapravka implements Serializable {
     public Zapravka(){
     }
 
-    public Zapravka(String view_Fuel, String fuel_quantity, String refueling_amount, String price_liter, String mileage, String comment, String data) {
+    public Zapravka(String view_Fuel, String fuel_quantity, int refueling_amount, String price_liter, int mileage, String comment, String data) {
         this.view_Fuel = view_Fuel;
         this.fuel_quantity = fuel_quantity;
         this.refueling_amount = refueling_amount;
@@ -50,11 +50,11 @@ public class Zapravka implements Serializable {
         this.fuel_quantity = fuel_quantity;
     }
 
-    public String getRefueling_amount() {
+    public int getRefueling_amount() {
         return refueling_amount;
     }
 
-    public void setRefueling_amount(String refueling_amount) {
+    public void setRefueling_amount(int refueling_amount) {
         this.refueling_amount = refueling_amount;
     }
 
@@ -66,11 +66,11 @@ public class Zapravka implements Serializable {
         this.price_liter = price_liter;
     }
 
-    public String getMileage() {
+    public int getMileage() {
         return mileage;
     }
 
-    public void setMileage(String mileage) {
+    public void setMileage(int mileage) {
         this.mileage = mileage;
     }
 

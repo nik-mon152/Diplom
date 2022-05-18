@@ -1,10 +1,16 @@
 package com.example.mycar.ui.Notification;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,6 +50,7 @@ public class NotificationsFragment extends Fragment {
     RecyclerView notificationLists;
     List<Notification> notificationList;
     AdapterNotification adapterNotification;
+    public static Context context;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,6 +59,7 @@ public class NotificationsFragment extends Fragment {
         fstore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
+        context = getContext();
 
         fab = v.findViewById(R.id.add);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +130,7 @@ public class NotificationsFragment extends Fragment {
                         });
             }
         });
+
         return v;
     }
 }
