@@ -75,15 +75,8 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.viewho
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ZapravkaDetail.class);
-                        intent.putExtra("Fuel", zapravkaList.get(position).getView_Fuel());
-                        intent.putExtra("Cumm", zapravkaList.get(position).getFuel_quantity());
-                        intent.putExtra("Litr", zapravkaList.get(position).getRefueling_amount());
-                        intent.putExtra("Price", zapravkaList.get(position).getPrice_liter());
-                        intent.putExtra("Probeg", zapravkaList.get(position).getMileage());
-                        intent.putExtra("Comment", zapravkaList.get(position).getComment());
-                        intent.putExtra("Data", zapravkaList.get(position).getData());
-                        intent.putExtra("documentId", documentId);
-                        v.getContext().startActivity(intent);
+                intent.putExtra("detail_zaprav", zapravkaList.get(position));
+                v.getContext().startActivity(intent);
             }
         });
 
@@ -139,9 +132,9 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.viewho
 
                 viewFuelEdd.setText(zapravkaList.get(position).getView_Fuel());
                 countEdd.setText(zapravkaList.get(position).getFuel_quantity());
-                cummEdd.setText(zapravkaList.get(position).getRefueling_amount());
+                cummEdd.setText(zapravkaList.get(position).getRefueling_amount() + "");
                 priceEdd.setText(zapravkaList.get(position).getPrice_liter());
-                probegEdd.setText(zapravkaList.get(position).getMileage());
+                probegEdd.setText(zapravkaList.get(position).getMileage() + "");
                 dataEdd.setText(zapravkaList.get(position).getData());
                 commentEdd.setText(zapravkaList.get(position).getComment());
 

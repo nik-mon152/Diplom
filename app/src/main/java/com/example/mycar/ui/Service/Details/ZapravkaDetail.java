@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.mycar.R;
+import com.example.mycar.ui.Service.Model.Zapravka;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -18,11 +19,11 @@ import java.util.Objects;
 
 public class ZapravkaDetail extends AppCompatActivity {
 
-    Intent zapravkaDetail;
     TextView fuelView, count, cumm, price, probeg, comment, data;
     FirebaseFirestore fstore;
     FirebaseUser user;
     FirebaseAuth fAuth;
+    Zapravka zapravka = null;
 
 
     @Override
@@ -31,6 +32,11 @@ public class ZapravkaDetail extends AppCompatActivity {
         setContentView(R.layout.activity_zapravka_detail);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         setTitle("Просмотр данных");
+
+        final Object object = getIntent().getSerializableExtra("detail_zaprav");
+        if (object instanceof Zapravka){
+            zapravka = (Zapravka) object;
+        }
 
         fuelView = findViewById(R.id.viewFuelAdd);
         count = findViewById(R.id.countAdd);
@@ -45,16 +51,15 @@ public class ZapravkaDetail extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
 
-
-        zapravkaDetail = getIntent();
-
-        fuelView.setText(zapravkaDetail.getStringExtra("Fuel"));
-        count.setText(zapravkaDetail.getStringExtra("Cumm"));
-        cumm.setText(zapravkaDetail.getStringExtra("Litr"));
-        price.setText(zapravkaDetail.getStringExtra("Price"));
-        probeg.setText(zapravkaDetail.getStringExtra("Probeg"));
-        comment.setText(zapravkaDetail.getStringExtra("Comment"));
-        data.setText(zapravkaDetail.getStringExtra("Data"));
+         if (zapravka != null){
+             fuelView.setText(zapravka.getView_Fuel());
+             count.setText(zapravka.getFuel_quantity());
+             cumm.setText(zapravka.getRefueling_amount() + "");
+             price.setText(zapravka.getPrice_liter());
+             probeg.setText(zapravka.getMileage() + "");
+             comment.setText(zapravka.getComment());
+             data.setText(zapravka.getData());
+         }
     }
 
     @Override

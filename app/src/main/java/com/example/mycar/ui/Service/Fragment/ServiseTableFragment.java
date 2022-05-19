@@ -14,6 +14,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.mycar.R;
 import com.example.mycar.ui.Service.AddingService.AddService;
@@ -45,6 +46,7 @@ public class ServiseTableFragment extends Fragment {
     FirebaseAuth fAuth;
     SwipeRefreshLayout swipeRefreshLayout;
     FloatingActionButton fab;
+    TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class ServiseTableFragment extends Fragment {
         fstore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
+        textView = v.findViewById(R.id.total_serv);
 
         fab = v.findViewById(R.id.add);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +90,7 @@ public class ServiseTableFragment extends Fragment {
                                 adapterServise.notifyDataSetChanged();
                                 swipeRefreshLayout.setRefreshing(false);
                             }
+                            calculateTotal(serviseList);
                         }
                     }
                 });
@@ -127,5 +131,13 @@ public class ServiseTableFragment extends Fragment {
         });
 
         return v;
+    }
+
+    private void calculateTotal(List<Servise> serviseList) {
+        int total = 0;
+        for (Servise servise : serviseList){
+            total += servise.getPrice_servise();
+        }
+        textView.setText("Всего: "+total);
     }
 }

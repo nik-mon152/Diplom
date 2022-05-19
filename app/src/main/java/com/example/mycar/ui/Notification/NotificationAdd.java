@@ -11,6 +11,7 @@ import androidx.core.app.NotificationManagerCompat;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.mycar.MainActivity;
 import com.example.mycar.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -150,10 +152,12 @@ public class NotificationAdd extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Ошибка в добавлении данных!",Toast.LENGTH_SHORT).show();
                     }
                 });
+                Intent intent = new Intent(NotificationAdd.this, MainActivity.class);
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(NotificationAdd.this, "Mych");
                 builder.setSmallIcon(R.mipmap.ic_launcher);
                 builder.setContentTitle("My car");
                 builder.setContentText("Вы создали уведомление!");
+                builder.setAutoCancel(true);
                 builder.setAutoCancel(true);
 
                 NotificationManagerCompat managerCompat = NotificationManagerCompat.from(NotificationAdd.this);

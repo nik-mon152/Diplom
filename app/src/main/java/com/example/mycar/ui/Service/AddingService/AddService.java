@@ -1,9 +1,11 @@
 package com.example.mycar.ui.Service.AddingService;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,7 +21,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -36,6 +41,7 @@ public class AddService extends AppCompatActivity {
     FirebaseFirestore fstore;
     FirebaseUser user;
     FirebaseAuth fAuth;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,7 @@ public class AddService extends AppCompatActivity {
         fstore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
+        userId = fAuth.getCurrentUser().getUid();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, viewWork);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -65,14 +72,28 @@ public class AddService extends AppCompatActivity {
         data.setText(dateText);
         addServise = findViewById(R.id.addServ);
 
+        DocumentReference documentReference = fstore.collection("Cars").document(userId);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                if (documentSnapshot != null) {
+                    if(documentSnapshot.exists()){
+                        probeg.setText(documentSnapshot.getLong("Mileage").intValue() + "");
+                    }else{
+                        Log.d("Сообщение об ошибке", "Ошибка в документе");
+                    }
+                }
+            }
+        });
+
         addServise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String addViewWork = spinner.getSelectedItem().toString();
                 String addNameWork = work.getText().toString();
                 String addAdress = adress.getText().toString();
-                String addprobeg = probeg.getText().toString();
-                String addprice = price.getText().toString();
+                int addprobeg = Integer.parseInt(probeg.getText().toString());
+                int addprice = Integer.parseInt(price.getText().toString());
                 String adddata = data.getText().toString();
                 String addcomment = comment.getText().toString();
 
@@ -84,11 +105,11 @@ public class AddService extends AppCompatActivity {
                     adress.setError("Введите данные в поле!!!");
                     return;
                 }
-                if(addprobeg.isEmpty()){
+                if(addprobeg == 0){
                     probeg.setError("Введите данные в поле!!!");
                     return;
                 }
-                if(addprice.isEmpty()){
+                if(addprice == 0){
                     price.setError("Введите данные в поле!!!");
                     return;
                 }

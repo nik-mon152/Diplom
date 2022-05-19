@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycar.R;
 import com.example.mycar.ui.Service.Details.ServiseDetail;
+import com.example.mycar.ui.Service.Details.ZapravkaDetail;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -68,25 +69,14 @@ public class AdapterServise extends RecyclerView.Adapter<AdapterServise.viewhold
         holder.commentList.setText(serviseList.get(position).getComment());
         holder.dataList.setText(serviseList.get(position).getData());
         String documentId = serviseList.get(position).getDocId();
-        int i = Integer.parseInt(serviseList.get(position).getPrice_servise());
-        int cummint = Integer.parseInt(serviseList.get(position).getPrice_servise()) + 1000;
-
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(v.getContext(), ServiseDetail.class);
-                intent.putExtra("View_Servise", serviseList.get(position).getView_Servise());
-                intent.putExtra("Name_work", serviseList.get(position).getName_work());
-                intent.putExtra("Adress", serviseList.get(position).getAdress());
-                intent.putExtra("Price_servise", serviseList.get(position).getPrice_servise());
-                intent.putExtra("Probeg", serviseList.get(position).getMileage());
-                intent.putExtra("Comment", serviseList.get(position).getComment());
-                intent.putExtra("Data", serviseList.get(position).getData());
-                intent.putExtra("documentId", documentId);
+                intent.putExtra("detail_servise", serviseList.get(position));
                 v.getContext().startActivity(intent);
-                Log.e("Число", "" + i);
             }
         });
 
@@ -144,8 +134,8 @@ public class AdapterServise extends RecyclerView.Adapter<AdapterServise.viewhold
                 view_Servise.setText(serviseList.get(position).getView_Servise());
                 name_work.setText(serviseList.get(position).getName_work());
                 adress.setText(serviseList.get(position).getAdress());
-                price_servise.setText(serviseList.get(position).getPrice_servise());
-                probeg.setText(serviseList.get(position).getMileage());
+                price_servise.setText(serviseList.get(position).getPrice_servise() + "");
+                probeg.setText(serviseList.get(position).getMileage() + "");
                 data.setText(serviseList.get(position).getData());
                 comment.setText(serviseList.get(position).getComment());
 

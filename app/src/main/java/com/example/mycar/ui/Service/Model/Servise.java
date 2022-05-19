@@ -6,8 +6,8 @@ public class Servise implements Serializable {
     private String view_Servise;
     private String name_work;
     private String adress;
-    private String price_servise;
-    private String mileage;
+    private int price_servise;
+    private int mileage;
     private String comment;
     private String data;
     String docId;
@@ -15,7 +15,7 @@ public class Servise implements Serializable {
     public Servise(){
     }
 
-    public Servise(String view_Servise, String name_work, String adress, String price_servise, String mileage, String comment, String data){
+    public Servise(String view_Servise, String name_work, String adress, int price_servise, int mileage, String comment, String data){
         this.view_Servise = view_Servise;
         this.name_work = name_work;
         this.adress = adress;
@@ -49,19 +49,19 @@ public class Servise implements Serializable {
         this.adress = adress;
     }
 
-    public String getPrice_servise() {
+    public int getPrice_servise() {
         return price_servise;
     }
 
-    public void setPrice_servise(String price_servise) {
+    public void setPrice_servise(int price_servise) {
         this.price_servise = price_servise;
     }
 
-    public String getMileage() {
+    public int getMileage() {
         return mileage;
     }
 
-    public void setMileage(String mileage) {
+    public void setMileage(int mileage) {
         this.mileage = mileage;
     }
 

@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="10dp"
             android:text="Всего: "
             android:textColor="@color/black"
             android:textSize="20dp"

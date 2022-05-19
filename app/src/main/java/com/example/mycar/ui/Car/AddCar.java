@@ -115,7 +115,7 @@ public class AddCar extends AppCompatActivity {
                         addmarka.setText(documentSnapshot.getString("Marka"));
                         addmodel.setText(documentSnapshot.getString("Model"));
                         addage.setText(documentSnapshot.getString("Year of issue"));
-                        addprobeg.setText(documentSnapshot.getString("Mileage"));
+                        addprobeg.setText(documentSnapshot.getLong("Mileage").intValue() + "");
                     }else{
                         Log.d("Сообщение об ошибке", "Ошибка в документе");
                     }

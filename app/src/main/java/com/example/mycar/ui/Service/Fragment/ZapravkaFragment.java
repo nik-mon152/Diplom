@@ -147,6 +147,16 @@ public class ZapravkaFragment extends Fragment{
             total += zapravka.getRefueling_amount();
         }
         textView.setText("Всего: "+total);
+        int zapravka_total = total;
+        Map<String, Object> totallist = new HashMap<>();
+        totallist.put("total", zapravka_total);
+
+        fstore.collection("zapravka_total").document(user.getUid()).set(totallist).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+
+            }
+        });
 
     }
 

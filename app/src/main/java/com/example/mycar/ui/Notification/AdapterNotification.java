@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,7 +42,7 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
     FirebaseUser user;
     FirebaseAuth fAuth;
     String userId;
-    String prob;
+    int prob;
 
 
     public AdapterNotification(List<Notification> notificationList) {
@@ -71,6 +72,21 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
         holder.comment_notifList.setText(notificationList.get(position).getComment_notif());
         String documentId = notificationList.get(position).getDocId();
 
+        DocumentReference documentReference = fstore.collection("Cars").document(userId);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                if (documentSnapshot != null) {
+                    if(documentSnapshot.exists()){
+                        prob = documentSnapshot.getLong("Mileage").intValue();
+
+                    }else{
+                        Log.d("Сообщение об ошибке", "Ошибка в документе");
+                    }
+                }
+            }
+        });
 
         holder.deleteItem.setOnClickListener(new View.OnClickListener() {
             @Override
