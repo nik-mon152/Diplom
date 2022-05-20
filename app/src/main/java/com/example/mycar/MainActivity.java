@@ -3,6 +3,9 @@ package com.example.mycar;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.mycar.ui.Notification.AdapterNotification;
+import com.example.mycar.ui.Notification.Notification;
+import com.example.mycar.ui.Notification.NotificationsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +16,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.mycar.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -21,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

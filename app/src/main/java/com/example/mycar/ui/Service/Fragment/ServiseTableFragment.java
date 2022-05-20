@@ -34,7 +34,9 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ServiseTableFragment extends Fragment {
 
@@ -120,6 +122,7 @@ public class ServiseTableFragment extends Fragment {
                                                         adapterServise.notifyDataSetChanged();
                                                         swipeRefreshLayout.setRefreshing(false);
                                                     }
+                                                    calculateTotal(serviseList);
                                                 }
                                             }
                                         });
@@ -138,6 +141,16 @@ public class ServiseTableFragment extends Fragment {
         for (Servise servise : serviseList){
             total += servise.getPrice_servise();
         }
-        textView.setText("Всего: "+total);
+        int zapravka_total = total;
+        Map<String, Object> totallist = new HashMap<>();
+        totallist.put("total", zapravka_total);
+
+        fstore.collection("servise_total").document(user.getUid()).set(totallist).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+
+            }
+        });
+        textView.setText("Всего: "+ total +"₽");
     }
 }

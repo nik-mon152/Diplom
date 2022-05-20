@@ -7,14 +7,18 @@
     android:orientation="vertical"
     tools:context=".ui.Raskhody.RaskhodyFragment">
 
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="227dp"
-        android:layout_height="241dp"
-        android:src="@drawable/ic_baseline_score_24"
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pie_chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="550dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

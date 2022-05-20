@@ -1,14 +1,15 @@
-package com.example.mycar.ui.Service;
+package com.example.mycar.ui.Service.Fragment;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.mycar.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,7 +20,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
-public class InfoServise extends AppCompatActivity {
+public class ServiseInfoFragment extends Fragment {
 
     TextView adress, schedule, contacts, site;
     FirebaseFirestore fstore;
@@ -27,23 +28,18 @@ public class InfoServise extends AppCompatActivity {
     FirebaseUser user;
     String userID;
 
-    @SuppressLint("WrongViewCast")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_servise);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("Информация о сервисе");
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_info_servise, container, false);
+
 
         fstore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
-        user = fAuth.getCurrentUser();
-        userID = fAuth.getCurrentUser().getUid();
 
-        adress = findViewById(R.id.InfoAdress);
-        schedule = findViewById(R.id.InfoSchedule);
-        contacts = findViewById(R.id.InfoContacts);
-        site = findViewById(R.id.InfoSite);
+        adress = v.findViewById(R.id.InfoAdress);
+        schedule = v.findViewById(R.id.InfoSchedule);
+        contacts = v.findViewById(R.id.InfoContacts);
+        site = v.findViewById(R.id.InfoSite);
 
         DocumentReference documentReference = fstore.collection("Servise").document("ServiseInfo");
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -61,16 +57,7 @@ public class InfoServise extends AppCompatActivity {
                 }
             }
         });
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
 
-        if (id == androidx.appcompat.R.id.action_bar){
-            return true;
-        }else if (id == android.R.id.home){
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
+        return v;
     }
 }

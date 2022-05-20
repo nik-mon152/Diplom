@@ -149,8 +149,8 @@ public class AdapterServise extends RecyclerView.Adapter<AdapterServise.viewhold
                         zapravkaEdd.put("view_Servise", view_Servise.getText().toString());
                         zapravkaEdd.put("name_work", name_work.getText().toString());
                         zapravkaEdd.put("adress", adress.getText().toString());
-                        zapravkaEdd.put("price_servise", price_servise.getText().toString());
-                        zapravkaEdd.put("mileage", probeg.getText().toString());
+                        zapravkaEdd.put("price_servise", Integer.parseInt(price_servise.getText().toString()));
+                        zapravkaEdd.put("mileage", Integer.parseInt(probeg.getText().toString()));
                         zapravkaEdd.put("comment", comment.getText().toString());
                         zapravkaEdd.put("data", data.getText().toString());
                         fstore.collection("Servises").document(user.getUid()).collection("myServises").document(documentId)

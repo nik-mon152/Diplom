@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.example.mycar.ui.Service.Fragment.AddTableFragment;
+import com.example.mycar.ui.Service.Fragment.ServiseInfoFragment;
 import com.example.mycar.ui.Service.Fragment.ServiseTableFragment;
 import com.example.mycar.ui.Service.Fragment.ZapravkaFragment;
 
@@ -26,7 +26,7 @@ public class ServiceViewPagerAdapter extends FragmentStatePagerAdapter implement
             case 1:
                 return new ServiseTableFragment();
             case 2:
-                return new AddTableFragment();
+                return new ServiseInfoFragment();
             default:
                 return new ZapravkaFragment();
         }

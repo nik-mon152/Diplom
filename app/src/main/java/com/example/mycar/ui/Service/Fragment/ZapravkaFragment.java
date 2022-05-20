@@ -146,7 +146,7 @@ public class ZapravkaFragment extends Fragment{
         for (Zapravka zapravka : zapravkaArrayList){
             total += zapravka.getRefueling_amount();
         }
-        textView.setText("Всего: "+total);
+        textView.setText("Всего: " + total +"₽");
         int zapravka_total = total;
         Map<String, Object> totallist = new HashMap<>();
         totallist.put("total", zapravka_total);

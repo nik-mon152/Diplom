@@ -49,6 +49,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation 'com.orhanobut:dialogplus:1.11@aar'
     implementation 'com.google.firebase:firebase-messaging:23.0.4'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
