@@ -59,15 +59,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddAgeCar" />
 
+    <EditText
+        android:id="@+id/addpower"
+        android:layout_width="379dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Мощность, л.с"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddProbeg" />
+
     <ImageView
         android:id="@+id/CarFotoAdd"
-        android:layout_width="281dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="65dp"
+        android:layout_width="251dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/car" />
@@ -80,6 +93,7 @@
         android:layout_marginEnd="147dp"
         android:layout_marginBottom="30dp"
         android:text="Добавить"
+        android:background="@drawable/buttun_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -94,8 +108,9 @@
         android:layout_marginEnd="180dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddProbeg" />
+        app:layout_constraintTop_toBottomOf="@+id/addpower" />
 
     <Spinner
         android:id="@+id/ViewFuel"
@@ -114,10 +129,20 @@
         android:layout_width="377dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="18dp"
         android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CarFotoAdd"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Нажмите чтобы добавить фото"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CarFotoAdd" />
 </androidx.constraintlayout.widget.ConstraintLayout>

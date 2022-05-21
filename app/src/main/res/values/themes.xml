@@ -20,5 +20,8 @@
     </style>
     <style name="Theme.MyCar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.MyCar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Circular">
+        <item name="cornerSize">50%</item>
+    </style>
 
 </resources>

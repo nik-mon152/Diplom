@@ -3,11 +3,15 @@ package com.example.mycar.Authentication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,18 +29,22 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    EditText regFirstName, regLastName, regEmail, regNumber, regPassword;
+    EditText regFirstName, regLastName, regPatronymic, regData, regEmail, regNumber, regPassword;
     Button btnResgister;
     TextView btnLogin;
     String userID;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+    DatePickerDialog.OnDateSetListener onDateSetListener;
+    int year, month, day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
         regFirstName = findViewById(R.id.FirstName);
         regLastName = findViewById(R.id.LastName);
+        regPatronymic = findViewById(R.id.patronymic);
+        regData = findViewById(R.id.date);
         regEmail = findViewById(R.id.Email);
         regNumber = findViewById(R.id.Number);
         regPassword = findViewById(R.id.Password);
@@ -53,7 +63,25 @@ public class RegistrationActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
+        final Calendar calendar = Calendar.getInstance();
 
+        regData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                day = calendar.get(Calendar.DAY_OF_MONTH);
+                month = calendar.get(Calendar.MONTH);
+                year = calendar.get(Calendar.YEAR);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrationActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        month = month + 1;
+                        String date = dayOfMonth + "." + month + "." + year;
+                        regData.setText(date);
+                    }
+                }, day, month, year);
+                datePickerDialog.show();
+            }
+        });
 
         btnResgister = findViewById(R.id.btnResgister);
         btnResgister.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +89,8 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String firstName = regFirstName.getText().toString();
                 String lastName = regLastName.getText().toString();
+                String patronymic = regPatronymic.getText().toString();
+                String date = regData.getText().toString();
                 String email = regEmail.getText().toString().trim();
                 String number = regNumber.getText().toString();
                 String password = regPassword.getText().toString().trim();
@@ -74,6 +104,14 @@ public class RegistrationActivity extends AppCompatActivity {
                     regLastName.setError("Введите свою фамилию!!!");
                     return;
                 }
+                if(patronymic.isEmpty()){
+                    regPatronymic.setError("Введите свое отчество!!!");
+                    return;
+                }
+                if(date.isEmpty()){
+                    regData.setError("Выберите дату рождения!!!");
+                    return;
+                }
                 if(email.isEmpty()){
                     regEmail.setError("Введите почту!!!");
                     return;
@@ -85,7 +123,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
                 if(number.isEmpty()){
-                    regNumber.setError("Введите свой номером телефона!!!");
+                    regNumber.setError("Введите свой номер телефона!!!");
                     return;
                 }else if(number.length() < 11){
                     regNumber.setError("Некорректно введен номер!!!");
@@ -126,6 +164,8 @@ public class RegistrationActivity extends AppCompatActivity {
                        Map<String, Object> user = new HashMap<>();
                        user.put("FirstName", firstName);
                        user.put("LastName", lastName);
+                       user.put("Patronymic", patronymic);
+                       user.put("Birthday", date);
                        user.put("Email", email);
                        user.put("Number", number);
                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {

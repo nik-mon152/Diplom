@@ -30,7 +30,7 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 public class CarFragment extends Fragment {
-    TextView markaModel, age, probeg, fuel;
+    TextView markaModel, age, probeg, fuel, power;
     ImageView carFoto;
     Button addCar;
     FirebaseAuth fAuth;
@@ -49,6 +49,7 @@ public class CarFragment extends Fragment {
         fuel = v.findViewById(R.id.ViewFuelCar);
         carFoto = v.findViewById(R.id.CarFoto);
         addCar = v.findViewById(R.id.btnAddCar);
+        power = v.findViewById(R.id.powercar);
 
         // Firebase
         fAuth = FirebaseAuth.getInstance();
@@ -73,10 +74,11 @@ public class CarFragment extends Fragment {
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 if (documentSnapshot != null) {
                     if(documentSnapshot.exists()){
-                        markaModel.setText("Тс: " + documentSnapshot.getString("Marka") + " " + documentSnapshot.getString("Model"));
-                        age.setText("Год выпуска: " + documentSnapshot.getString("Year of issue") + " год");
-                        probeg.setText("Пробег: " + documentSnapshot.getLong("Mileage").intValue() + " км.");
-                        fuel.setText("Вид топлива: " + documentSnapshot.getString("Type of fuel"));
+                        markaModel.setText(documentSnapshot.getString("Marka") + " " + documentSnapshot.getString("Model"));
+                        age.setText(documentSnapshot.getString("Year of issue") + " год");
+                        probeg.setText(documentSnapshot.getLong("Mileage").intValue() + " км");
+                        fuel.setText(documentSnapshot.getString("Type of fuel"));
+                        power.setText(documentSnapshot.getLong("Power").intValue() + " л.с");
                     }else{
                         Log.d("Сообщение об ошибке", "Ошибка в документе");
                     }

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -42,7 +43,7 @@ import java.util.Map;
 
 public class AddCar extends AppCompatActivity {
 
-    TextView addmarka, addmodel, addage, addprobeg;
+    EditText addmarka, addmodel, addage, addprobeg, addpower;
     ImageView foto;
     Button addCar;
     Spinner addviewCar, addviewFuel;
@@ -82,10 +83,13 @@ public class AddCar extends AppCompatActivity {
         addage = findViewById(R.id.AddAgeCar);
         addprobeg = findViewById(R.id.AddProbeg);
         foto = findViewById(R.id.CarFotoAdd);
+        addpower = findViewById(R.id.addpower);
+
         //Нахождение и создание спиннера для выбора вида транспорта
         addviewCar = findViewById(R.id.viewCar);
         addviewCar.setAdapter(viewCarStrAdapter);
         addviewCar.setPrompt("Выберите вид транспорта");
+
         //Нахождение и создание спиннера для вида топлива
         addviewFuel = findViewById(R.id.ViewFuel);
         addviewFuel.setAdapter(viewFuelAdapter);
@@ -116,6 +120,7 @@ public class AddCar extends AppCompatActivity {
                         addmodel.setText(documentSnapshot.getString("Model"));
                         addage.setText(documentSnapshot.getString("Year of issue"));
                         addprobeg.setText(documentSnapshot.getLong("Mileage").intValue() + "");
+                        addpower.setText(documentSnapshot.getLong("Power").intValue() + "");
                     }else{
                         Log.d("Сообщение об ошибке", "Ошибка в документе");
                     }
@@ -131,23 +136,28 @@ public class AddCar extends AppCompatActivity {
                 String model = addmodel.getText().toString();
                 String age = addage.getText().toString();
                 int probeg = Integer.parseInt(addprobeg.getText().toString());
+                int power = Integer.parseInt(addpower.getText().toString());
                 String viewCar = addviewCar.getSelectedItem().toString();
                 String viewFuel = addviewFuel.getSelectedItem().toString();
 
                 if(marka.isEmpty()){
-                    addmarka.setError("Введите свое полное имя!!!");
+                    addmarka.setError("Введите марку транспорта!!!");
                     return;
                 }
                 if(model.isEmpty()){
-                    addmodel.setError("Введите свое полное имя!!!");
+                    addmodel.setError("Введите модель транспорта!!!");
                     return;
                 }
                 if(age.isEmpty()){
-                    addage.setError("Введите свое полное имя!!!");
+                    addage.setError("Введите год выпуска!!!");
                     return;
                 }
                 if(probeg == 0){
-                    addprobeg.setError("Введите свое полное имя!!!");
+                    addprobeg.setError("Введите пробег!!!");
+                    return;
+                }
+                if(power == 0){
+                    addpower.setError("Введите мощность двигателя!!!");
                     return;
                 }
 
@@ -160,6 +170,7 @@ public class AddCar extends AppCompatActivity {
                 cars.put("Model", model);
                 cars.put("Year of issue", age);
                 cars.put("Mileage", probeg);
+                cars.put("Power", power);
                 cars.put("Type of fuel", viewFuel);
 
             documentReference.set(cars).addOnSuccessListener(new OnSuccessListener<Void>() {
