@@ -36,6 +36,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
@@ -149,15 +150,13 @@ public class ZapravkaFragment extends Fragment{
         textView.setText("Всего: " + total +"₽");
         int zapravka_total = total;
         Map<String, Object> totallist = new HashMap<>();
-        totallist.put("total", zapravka_total);
+        totallist.put("total_zapravka", zapravka_total);
 
-        fstore.collection("zapravka_total").document(user.getUid()).set(totallist).addOnSuccessListener(new OnSuccessListener<Void>() {
+        fstore.collection("Expenses").document(user.getUid()).set(totallist, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
 
             }
         });
-
-    }
-
+        }
 }

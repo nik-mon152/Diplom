@@ -28,10 +28,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -141,11 +143,11 @@ public class ServiseTableFragment extends Fragment {
         for (Servise servise : serviseList){
             total += servise.getPrice_servise();
         }
-        int zapravka_total = total;
+        int servise_total = total;
         Map<String, Object> totallist = new HashMap<>();
-        totallist.put("total", zapravka_total);
+        totallist.put("total_servise", servise_total);
 
-        fstore.collection("servise_total").document(user.getUid()).set(totallist).addOnSuccessListener(new OnSuccessListener<Void>() {
+        fstore.collection("Expenses").document(user.getUid()).set(totallist, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
 
