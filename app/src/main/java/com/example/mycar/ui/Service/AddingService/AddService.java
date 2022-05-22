@@ -89,6 +89,14 @@ public class AddService extends AppCompatActivity {
         addServise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(probeg.getText().toString().isEmpty()){
+                    probeg.setError("Введите пробег");
+                    return;
+                }
+                if(price.getText().toString().isEmpty()){
+                    price.setError("Введите стоимость сервиса");
+                    return;
+                }
                 String addViewWork = spinner.getSelectedItem().toString();
                 String addNameWork = work.getText().toString();
                 String addAdress = adress.getText().toString();
@@ -98,27 +106,27 @@ public class AddService extends AppCompatActivity {
                 String addcomment = comment.getText().toString();
 
                 if(addNameWork.isEmpty()){
-                    work.setError("Введите данные в поле!!!");
+                    work.setError("Введите вид работ");
                     return;
                 }
                 if(addAdress.isEmpty()){
-                    adress.setError("Введите данные в поле!!!");
+                    adress.setError("Введите адрес сервиса");
                     return;
                 }
                 if(addprobeg == 0){
-                    probeg.setError("Введите данные в поле!!!");
+                    probeg.setError("Введите пробег");
                     return;
                 }
                 if(addprice == 0){
-                    price.setError("Введите данные в поле!!!");
+                    price.setError("Введите стоимость сервиса");
                     return;
                 }
                 if(adddata.isEmpty()){
-                    data.setError("Введите данные в поле!!!");
+                    data.setError("Введите дату");
                     return;
                 }
                 if(addcomment.isEmpty()){
-                    comment.setError("Введите данные в поле!!!");
+                    comment.setError("Введите комментарий");
                     return;
                 }
 

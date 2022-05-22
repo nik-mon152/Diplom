@@ -99,6 +99,15 @@ public class AddZapravka extends AppCompatActivity {
         addZapravka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(probeg.getText().toString().isEmpty()){
+                    probeg.setError("Введите пробег");
+                    return;
+                }
+                if(cumm.getText().toString().isEmpty()){
+                    cumm.setError("Введите стоимость заправки");
+                    return;
+                }
+
                 String addfuel = fuelView.getSelectedItem().toString();
                 String addcol = count.getText().toString();
                 int addcumm = Integer.parseInt(cumm.getText().toString());
@@ -108,15 +117,19 @@ public class AddZapravka extends AppCompatActivity {
                 String adddata = data.getText().toString();
 
                 if(addcol.isEmpty()){
-                    count.setError("Введите данные в поле!!!");
+                    count.setError("Введите количество топлива");
                     return;
                 }
                 if(addcumm == 0){
-                    cumm.setError("Введите данные в поле!!!");
+                    cumm.setError("Введите стоимость заправки");
                     return;
                 }
                 if(addcomment.isEmpty()){
-                    comment.setError("Введите данные в поле!!!");
+                    comment.setError("Введите комментарий");
+                    return;
+                }
+                if(adddata.isEmpty()){
+                    data.setError("Введите дату");
                     return;
                 }
                 Map<String, Object> zapravka = new HashMap<>();

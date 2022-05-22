@@ -102,6 +102,10 @@ public class NotificationAdd extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(probegn.getText().toString().isEmpty()){
+                    probegn.setError("Введите пробег");
+                    return;
+                }
 
                 String viewWorkn = spinner.getSelectedItem().toString();
                 String name = work.getText().toString();
@@ -111,19 +115,19 @@ public class NotificationAdd extends AppCompatActivity {
                 String comment = commentn.getText().toString();
 
                 if(name.isEmpty()){
-                    work.setError("Введите свое поле!!!");
+                    work.setError("Введите название");
                     return;
                 }
                 if(adress.isEmpty()){
-                    adressn.setError("Введите свое поле!!!");
+                    adressn.setError("Введите адрес");
                     return;
                 }
                 if(price.isEmpty()){
-                    cumm.setError("Введите свое поле!!!");
+                    cumm.setError("Введите сумму");
                     return;
                 }
                 if(probeg == 0){
-                    probegn.setError("Введите свое поле!!!");
+                    probegn.setError("Введите пробег");
                     return;
                 }
                 if(comment.isEmpty()){
