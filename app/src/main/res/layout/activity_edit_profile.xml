@@ -9,18 +9,32 @@
     tools:context=".ui.Profile.EditProfile">
 
     <EditText
+        android:id="@+id/textPatronymic"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="56dp"
+        android:ems="10"
+        android:hint="Ваше отчество"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLastName" />
+
+    <EditText
         android:id="@+id/textName"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="31dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
+        android:hint="Ваше имя"
         android:inputType="textPersonName"
-        android:text="Ваше имя"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileImageEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
         android:id="@+id/textLastName"
@@ -30,8 +44,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
+        android:hint="Ваша фамилия"
         android:inputType="textPersonName"
-        android:text="Ваша фамилия"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textName" />
@@ -41,35 +55,49 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
+        android:hint="Ваш Email"
         android:inputType="textPersonName"
-        android:text="Ваш Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLastName" />
+        app:layout_constraintTop_toBottomOf="@+id/textBirthday" />
 
     <EditText
         android:id="@+id/textNumber"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
+        android:hint="Ваш номер телефона"
         android:inputType="textPersonName"
-        android:text="Ваш номре телефона"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEmail" />
+
+    <EditText
+        android:id="@+id/textBirthday"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="56dp"
+        android:ems="10"
+        android:hint="Ваша дата рождения"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPatronymic" />
 
     <ImageView
         android:id="@+id/profileImageEdit"
         android:layout_width="189dp"
         android:layout_height="177dp"
         android:layout_marginStart="111dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="111dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,13 +109,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="142dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="142dp"
-        android:layout_marginBottom="60dp"
         android:text="Сохранить"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/buttun_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNumber" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="71dp"
+        android:text="Нажмите, чтобы добавить фото профиля"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageEdit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

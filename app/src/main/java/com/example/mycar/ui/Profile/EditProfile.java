@@ -26,7 +26,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -37,7 +40,7 @@ import java.util.Map;
 
 public class EditProfile extends AppCompatActivity {
 
-    EditText profileName, profileLastName, profileEmail, profileNumber;
+    EditText profileName, profileLastName, profileEmail, profileNumber, profilePatronymic, profileDate;
     Button save;
     ImageView profileImage;
     FirebaseAuth fAuth;
@@ -54,8 +57,6 @@ public class EditProfile extends AppCompatActivity {
 
 
         Intent data = getIntent();
-        String name = data.getStringExtra("Имя");
-        String lastName = data.getStringExtra("Фамилия");
         String email = data.getStringExtra("Почта");
         String number = data.getStringExtra("Номер телефона");
 
@@ -69,9 +70,20 @@ public class EditProfile extends AppCompatActivity {
         profileEmail = findViewById(R.id.textEmail);
         profileNumber = findViewById(R.id.textNumber);
         profileImage = findViewById(R.id.profileImageEdit);
+        profilePatronymic = findViewById(R.id.textPatronymic);
+        profileDate = findViewById(R.id.textBirthday);
 
-        profileName.setText(name);
-        profileLastName.setText(lastName);
+       fstore.collection("Users").document(user.getUid()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                profileName.setText(documentSnapshot.getString("FirstName"));
+                profileLastName.setText(documentSnapshot.getString("LastName"));
+                profilePatronymic.setText(documentSnapshot.getString("Patronymic"));
+                profileDate.setText(documentSnapshot.getString("Birthday"));
+            }
+        });
+
+
         profileEmail.setText(email);
         profileNumber.setText(number);
 
@@ -97,7 +109,8 @@ public class EditProfile extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (profileName.getText().toString().isEmpty() || profileLastName.getText().toString().isEmpty() || profileEmail.getText().toString().isEmpty() || profileNumber.getText().toString().isEmpty()){
+                if (profileName.getText().toString().isEmpty() || profileLastName.getText().toString().isEmpty() || profileEmail.getText().toString().isEmpty()
+                        || profileNumber.getText().toString().isEmpty() || profilePatronymic.getText().toString().isEmpty() || profileDate.getText().toString().isEmpty()){
                     Toast.makeText(getApplicationContext(),"Введите все поля",Toast.LENGTH_SHORT).show();
                     return;
                 }

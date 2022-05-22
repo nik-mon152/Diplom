@@ -71,7 +71,6 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/buttun_style"
                 android:text="Изменить профиль"
-                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
