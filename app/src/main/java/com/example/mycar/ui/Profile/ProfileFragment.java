@@ -2,6 +2,7 @@ package com.example.mycar.ui.Profile;
 
 
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 
@@ -43,7 +44,7 @@ import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment {
 
-    TextView fullname, lastname, email, number, verMsg;
+    TextView fio, birthday, email, number, verMsg;
     Button bntLogout, verEmail, resetPasswd, changeProfile;
     ImageView profileImage;
     FirebaseAuth fAuth;
@@ -58,10 +59,8 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
 
-
-
-        fullname = v.findViewById(R.id.profileFirsName);
-        lastname = v.findViewById(R.id.profileLastName);
+        fio = v.findViewById(R.id.profleFIO);
+        birthday = v.findViewById(R.id.birthday);
         email = v.findViewById(R.id.profileEmail);
         number = v.findViewById(R.id.profilePhone);
 
@@ -156,12 +155,13 @@ public class ProfileFragment extends Fragment {
 
         DocumentReference documentReference = fstore.collection("Users").document(userId);
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 if (documentSnapshot != null) {
                     if(documentSnapshot.exists()){
-                        fullname.setText(documentSnapshot.getString("FirstName"));
-                        lastname.setText(documentSnapshot.getString("LastName"));
+                        fio.setText(documentSnapshot.getString("LastName") + " " + documentSnapshot.getString("FirstName") + " " + documentSnapshot.getString("Patronymic"));
+                        birthday.setText(documentSnapshot.getString("Birthday"));
                         email.setText(documentSnapshot.getString("Email"));
                         number.setText(documentSnapshot.getString("Number"));
                     }else{
@@ -185,8 +185,8 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(v.getContext(), EditProfile.class);
-                intent.putExtra("Имя", fullname.getText().toString());
-                intent.putExtra("Фамилия", lastname.getText().toString());
+//                intent.putExtra("Имя", fullname.getText().toString());
+//                intent.putExtra("Фамилия", lastname.getText().toString());
                 intent.putExtra("Почта", email.getText().toString());
                 intent.putExtra("Номер телефона", number.getText().toString());
                 startActivity(intent);

@@ -132,6 +132,14 @@ public class AddCar extends AppCompatActivity {
         addCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(addprobeg.getText().toString().isEmpty()){
+                    addprobeg.setError("Введите пробег");
+                    return;
+                }
+                if(addpower.getText().toString().isEmpty()){
+                    addpower.setError("Введите мощность двигателя");
+                    return;
+                }
                 String marka = addmarka.getText().toString();
                 String model = addmodel.getText().toString();
                 String age = addage.getText().toString();
@@ -141,23 +149,23 @@ public class AddCar extends AppCompatActivity {
                 String viewFuel = addviewFuel.getSelectedItem().toString();
 
                 if(marka.isEmpty()){
-                    addmarka.setError("Введите марку транспорта!!!");
+                    addmarka.setError("Введите марку транспорта");
                     return;
                 }
                 if(model.isEmpty()){
-                    addmodel.setError("Введите модель транспорта!!!");
+                    addmodel.setError("Введите модель транспорта");
                     return;
                 }
                 if(age.isEmpty()){
-                    addage.setError("Введите год выпуска!!!");
+                    addage.setError("Введите год выпуска");
                     return;
                 }
                 if(probeg == 0){
-                    addprobeg.setError("Введите пробег!!!");
+                    addprobeg.setError("Введите пробег");
                     return;
                 }
                 if(power == 0){
-                    addpower.setError("Введите мощность двигателя!!!");
+                    addpower.setError("Введите мощность двигателя");
                     return;
                 }
 

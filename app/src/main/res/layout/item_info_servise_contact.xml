@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@drawable/ic_baseline_directions_car"
+                android:src="@drawable/contacts"
                 android:padding="2dp"
                 android:layout_marginStart="5dp"
                 android:layout_width="30dp"
@@ -29,13 +29,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:text="Транспортное средство"
+                android:text="Номер телефона"
                 android:textSize="14sp"
-                android:textStyle="bold">
-            </TextView>
+                android:textStyle="bold"></TextView>
         </LinearLayout>
             <TextView
-                android:id="@+id/MarkaModel"
+                android:id="@+id/InfoContacts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"

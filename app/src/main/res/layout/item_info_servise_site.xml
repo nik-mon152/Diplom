@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@drawable/ic_baseline_directions_car"
+                android:src="@drawable/site"
                 android:padding="2dp"
                 android:layout_marginStart="5dp"
                 android:layout_width="30dp"
@@ -29,20 +29,22 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:text="Транспортное средство"
+                android:text="Сайт автосервиса"
                 android:textSize="14sp"
                 android:textStyle="bold">
+
             </TextView>
         </LinearLayout>
-            <TextView
-                android:id="@+id/MarkaModel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginBottom="10dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/InfoSite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="10dp"
+            android:autoLink="web"
+            android:textSize="18dp"
+            android:textStyle="bold" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

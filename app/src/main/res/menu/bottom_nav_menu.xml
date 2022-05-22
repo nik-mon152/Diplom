@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_raskhody"
-        android:icon="@drawable/ic_baseline_score_24"
+        android:icon="@drawable/ic_rashody"
         android:title="@string/title_raskhody" />
 
     <item

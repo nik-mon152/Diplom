@@ -112,6 +112,7 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.viewho
             }
         });
         holder.updateItem.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 final DialogPlus dialogPlus = DialogPlus.newDialog(holder.itemView.getContext())
@@ -132,9 +133,9 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.viewho
 
                 viewFuelEdd.setText(zapravkaList.get(position).getView_Fuel());
                 countEdd.setText(zapravkaList.get(position).getFuel_quantity());
-                cummEdd.setText(zapravkaList.get(position).getRefueling_amount() + "");
+                cummEdd.setText(Integer.toString(zapravkaList.get(position).getRefueling_amount()));
                 priceEdd.setText(zapravkaList.get(position).getPrice_liter());
-                probegEdd.setText(zapravkaList.get(position).getMileage() + "");
+                probegEdd.setText(Integer.toString(zapravkaList.get(position).getMileage()));
                 dataEdd.setText(zapravkaList.get(position).getData());
                 commentEdd.setText(zapravkaList.get(position).getComment());
 
@@ -144,14 +145,59 @@ public class AdapterZapravka extends RecyclerView.Adapter<AdapterZapravka.viewho
                 btnEdd.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(cummEdd.getText().toString().isEmpty()){
+                            cummEdd.setError("Введите стоимость заправки");
+                            return;
+                        }
+                        if(probegEdd.getText().toString().isEmpty()){
+                            probegEdd.setError("Введите пробег");
+                            return;
+                        }
+                        String fuel = viewFuelEdd.getText().toString();
+                        String count = countEdd.getText().toString();
+                        int cumm = Integer.parseInt(cummEdd.getText().toString());
+                        String price = priceEdd.getText().toString();
+                        int probeg = Integer.parseInt(cummEdd.getText().toString());
+                        String coment = commentEdd.getText().toString();
+                        String data = dataEdd.getText().toString();
+
+                        if(fuel.isEmpty()){
+                            viewFuelEdd.setError("Введите вид топлива");
+                            return;
+                        }
+                        if(count.isEmpty()){
+                            countEdd.setError("Введите количество топлива");
+                            return;
+                        }
+                        if(cumm == 0){
+                            cummEdd.setError("Введите стоимость заправки");
+                            return;
+                        }
+                        if(price.isEmpty()){
+                            priceEdd.setError("Введите свое полное имя!!!");
+                            return;
+                        }
+                        if(probeg == 0){
+                            probegEdd.setError("Введите пробег");
+                            return;
+                        }
+                        if(coment.isEmpty()){
+                            commentEdd.setError("Введите коментарий");
+                            return;
+                        }
+                        if(data.isEmpty()){
+                            dataEdd.setError("Введите дату заправки");
+                            return;
+                        }
+
                         Map<String, Object> zapravkaEdd = new HashMap<>();
-                        zapravkaEdd.put("view_Fuel", viewFuelEdd.getText().toString());
-                        zapravkaEdd.put("fuel_quantity", countEdd.getText().toString());
-                        zapravkaEdd.put("refueling_amount", Integer.parseInt(cummEdd.getText().toString()));
-                        zapravkaEdd.put("price_liter", priceEdd.getText().toString());
-                        zapravkaEdd.put("mileage",Integer.parseInt(probegEdd.getText().toString()));
-                        zapravkaEdd.put("comment", commentEdd.getText().toString());
-                        zapravkaEdd.put("data", dataEdd.getText().toString());
+                        zapravkaEdd.put("view_Fuel", fuel);
+                        zapravkaEdd.put("fuel_quantity", count);
+                        zapravkaEdd.put("refueling_amount", cumm);
+                        zapravkaEdd.put("price_liter", price);
+                        zapravkaEdd.put("mileage", probeg);
+                        zapravkaEdd.put("comment", coment);
+                        zapravkaEdd.put("data", data);
                         fstore.collection("Zapravki").document(user.getUid()).collection("myZapravki").document(documentId)
                                 .update(zapravkaEdd)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {

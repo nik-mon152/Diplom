@@ -6,16 +6,44 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="@drawable/fon"
     tools:context=".ui.Car.CarFragment">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:text="Мой"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:text="Транспорт"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/CarFoto"
         android:layout_width="279dp"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:layout_marginStart="66dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="66dp"
-        android:src="@drawable/car"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,7 +51,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -33,7 +62,19 @@
                 <include layout="@layout/item_info_probeg"/>
                 <include layout="@layout/item_info_view_fuel"/>
                 <include layout="@layout/item_info_power"/>
-                <include layout="@layout/item_info_button"/>
+
+                <Button
+                    android:id="@+id/btnAddCar"
+                    android:layout_width="290dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/buttun_style"
+                    android:text="Добавить или изменить тс"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
     </ScrollView>
 </LinearLayout>

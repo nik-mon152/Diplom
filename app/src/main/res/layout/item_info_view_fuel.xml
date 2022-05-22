@@ -18,7 +18,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@drawable/gas_station"
+                android:src="@drawable/ic_gas_station_24"
                 android:padding="2dp"
                 android:layout_marginStart="5dp"
                 android:layout_width="30dp"
@@ -31,16 +31,17 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:text="Вид топлива"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="bold"></TextView>
+                android:textSize="14dp"
+                android:textStyle="bold">
+            </TextView>
         </LinearLayout>
             <TextView
                 android:id="@+id/ViewFuelCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:gravity="center|start"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="18dp" />
             </LinearLayout>

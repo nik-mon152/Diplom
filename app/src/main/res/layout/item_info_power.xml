@@ -31,7 +31,6 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:text="Мощность двигателя"
-                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"></TextView>
         </LinearLayout>
@@ -40,7 +39,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:gravity="center|start"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="18dp" />
             </LinearLayout>

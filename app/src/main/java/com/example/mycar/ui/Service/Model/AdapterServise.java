@@ -134,8 +134,8 @@ public class AdapterServise extends RecyclerView.Adapter<AdapterServise.viewhold
                 view_Servise.setText(serviseList.get(position).getView_Servise());
                 name_work.setText(serviseList.get(position).getName_work());
                 adress.setText(serviseList.get(position).getAdress());
-                price_servise.setText(serviseList.get(position).getPrice_servise() + "");
-                probeg.setText(serviseList.get(position).getMileage() + "");
+                price_servise.setText(Integer.toString(serviseList.get(position).getPrice_servise()));
+                probeg.setText(Integer.toString(serviseList.get(position).getMileage()));
                 data.setText(serviseList.get(position).getData());
                 comment.setText(serviseList.get(position).getComment());
 
@@ -145,14 +145,59 @@ public class AdapterServise extends RecyclerView.Adapter<AdapterServise.viewhold
                 btnEdd.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(price_servise.getText().toString().isEmpty()){
+                            price_servise.setError("Введите стоимость сервиса");
+                            return;
+                        }
+                        if(probeg.getText().toString().isEmpty()){
+                            probeg.setError("Введите пробег");
+                            return;
+                        }
+                        String view_servise = view_Servise.getText().toString();
+                        String nameWork = name_work.getText().toString();
+                        String adres = adress.getText().toString();
+                        int price = Integer.parseInt(price_servise.getText().toString());
+                        int probegedd = Integer.parseInt(probeg.getText().toString());
+                        String coment = comment.getText().toString();
+                        String dataed = data.getText().toString();
+
+                        if(view_servise.isEmpty()){
+                            view_Servise.setError("Введите вид работ");
+                            return;
+                        }
+                        if(nameWork.isEmpty()){
+                            name_work.setError("Введите название работ");
+                            return;
+                        }
+                        if(price == 0){
+                            price_servise.setError("Введите стоимость сервиса");
+                            return;
+                        }
+                        if(adres.isEmpty()){
+                            adress.setError("Введите адрес сервиса");
+                            return;
+                        }
+                        if(probegedd == 0){
+                            probeg.setError("Введите пробег");
+                            return;
+                        }
+                        if(coment.isEmpty()){
+                            comment.setError("Введите коментарий");
+                            return;
+                        }
+                        if(dataed.isEmpty()){
+                            data.setError("Введите дату заправки");
+                            return;
+                        }
+
                         Map<String, Object> zapravkaEdd = new HashMap<>();
-                        zapravkaEdd.put("view_Servise", view_Servise.getText().toString());
-                        zapravkaEdd.put("name_work", name_work.getText().toString());
-                        zapravkaEdd.put("adress", adress.getText().toString());
-                        zapravkaEdd.put("price_servise", Integer.parseInt(price_servise.getText().toString()));
-                        zapravkaEdd.put("mileage", Integer.parseInt(probeg.getText().toString()));
-                        zapravkaEdd.put("comment", comment.getText().toString());
-                        zapravkaEdd.put("data", data.getText().toString());
+                        zapravkaEdd.put("view_Servise", view_servise);
+                        zapravkaEdd.put("name_work", nameWork);
+                        zapravkaEdd.put("adress", adres);
+                        zapravkaEdd.put("price_servise", price);
+                        zapravkaEdd.put("mileage", probegedd);
+                        zapravkaEdd.put("comment", coment);
+                        zapravkaEdd.put("data", dataed);
                         fstore.collection("Servises").document(user.getUid()).collection("myServises").document(documentId)
                                 .update(zapravkaEdd)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:src="@drawable/ic_baseline_directions_car"
+                android:src="@drawable/gas_station"
                 android:padding="2dp"
                 android:layout_marginStart="5dp"
                 android:layout_width="30dp"
@@ -29,13 +29,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:text="Транспортное средство"
+                android:text="Сервисы"
                 android:textSize="14sp"
                 android:textStyle="bold">
             </TextView>
         </LinearLayout>
             <TextView
-                android:id="@+id/MarkaModel"
+                android:id="@+id/textZapravki"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -45,4 +45,4 @@
                 android:textSize="18dp" />
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>

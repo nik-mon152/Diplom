@@ -1,119 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/fon"
     tools:context=".ui.Service.Fragment.ServiseInfoFragment">
 
-    <TextView
-        android:id="@+id/InfoAdress"
-        android:layout_width="320dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center|start"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView14"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="30dp"
+                            android:text="Автосервис"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="30dp"
+                            android:text="Геликон"/>
+                </LinearLayout>
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/InfoSchedule"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center|start"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView15"
-        app:layout_constraintTop_toBottomOf="@+id/InfoAdress" />
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="249dp"
+            android:layout_height="200dp"
+           android:layout_gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/autoservice" />
 
-    <TextView
-        android:id="@+id/InfoContacts"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center|start"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toBottomOf="@+id/InfoSchedule" />
-
-    <TextView
-        android:id="@+id/InfoSite"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:autoLink="web"
-        android:gravity="center|start"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView17"
-        app:layout_constraintTop_toBottomOf="@+id/InfoContacts" />
-
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="349dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="31dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/autoservice" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="50dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView13"
-        app:srcCompat="@drawable/location" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView14"
-        app:srcCompat="@drawable/schedule" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView15"
-        app:srcCompat="@drawable/contacts" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView16"
-        app:srcCompat="@drawable/site" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                        <include layout="@layout/item_info_servise_location"/>
+                        <include layout="@layout/item_info_servise_schel"/>
+                        <include layout="@layout/item_info_servise_contact"/>
+                        <include layout="@layout/item_info_servise_site"/>
+                </LinearLayout>
+        </ScrollView>
+</LinearLayout>
