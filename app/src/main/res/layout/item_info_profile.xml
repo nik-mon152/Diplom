@@ -32,7 +32,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="имя фамия отчество"
+                    android:text="имя фамилия отчество"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -42,24 +42,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center"
                     android:text="дата рождения"
                     android:textColor="@color/black"
                     android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="5dp"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/verifyMsg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="Верификация не пройдена"
                     android:textColor="#f00"
-                    android:visibility="invisible"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="20dp"/>
+                    android:visibility="invisible" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

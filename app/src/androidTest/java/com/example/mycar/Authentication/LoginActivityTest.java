@@ -3,6 +3,8 @@ package com.example.mycar.Authentication;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.junit.Assert.*;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.test.rule.ActivityTestRule;
@@ -37,13 +39,13 @@ public class LoginActivityTest {
         getInstrumentation().waitForIdleSync();
         getInstrumentation().sendStringSync("wart_152@mail.ru");
         getInstrumentation().waitForIdleSync();
-
         assertEquals("wart_152@mail.ru", email.getText().toString());
 
     }
     @Test
     public void testPassword(){
         EditText password = loginActivity.findViewById(R.id.Password);
+
         getInstrumentation().runOnMainSync(new Runnable() {
             @Override
             public void run() {
@@ -53,9 +55,7 @@ public class LoginActivityTest {
         getInstrumentation().waitForIdleSync();
         getInstrumentation().sendStringSync("1234");
         getInstrumentation().waitForIdleSync();
-
         assertEquals("1234", password.getText().toString());
-
     }
 
     @After
