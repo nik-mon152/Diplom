@@ -16,6 +16,7 @@
         android:layout_marginEnd="41dp"
         android:ems="10"
         android:hint="Марка авто"
+        android:maxLength="25"
         app:layout_constraintEnd_toStartOf="@+id/AddModel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewCar" />
@@ -28,6 +29,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Модель авто"
+        android:maxLength="30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewCar" />
 
@@ -40,6 +42,7 @@
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Год выпуска"
+        android:maxLength="4"
         android:inputType="phone"
         app:layout_constraintEnd_toStartOf="@+id/ViewFuel"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +71,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Мощность, л.с"
+        android:maxLength="4"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

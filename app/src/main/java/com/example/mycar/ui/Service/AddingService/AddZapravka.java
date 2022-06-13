@@ -1,12 +1,9 @@
 package com.example.mycar.ui.Service.AddingService;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.ui.AppBarConfiguration;
-
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,6 +12,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mycar.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -22,7 +23,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -39,6 +43,7 @@ public class AddZapravka extends AppCompatActivity {
     FirebaseFirestore fstore;
     FirebaseUser user;
     FirebaseAuth fAuth;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,7 @@ public class AddZapravka extends AppCompatActivity {
         fstore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
         user = fAuth.getCurrentUser();
+        userId = fAuth.getCurrentUser().getUid();
 
 
         ArrayAdapter<String> viewFuelStrAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, viewFuelStr);
@@ -70,6 +76,20 @@ public class AddZapravka extends AppCompatActivity {
         comment = findViewById(R.id.commentAdd);
         data = findViewById(R.id.dataAdd);
         data.setText(dateText);
+
+        DocumentReference documentReference = fstore.collection("Cars").document(userId);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                if (documentSnapshot != null) {
+                    if(documentSnapshot.exists()){
+                        probeg.setText(documentSnapshot.getLong("Mileage").intValue() + "");
+                    }else{
+                        Log.d("Сообщение об ошибке", "Ошибка в документе");
+                    }
+                }
+            }
+        });
 
 
         TextWatcher textWatcher = new TextWatcher() {
@@ -122,10 +142,6 @@ public class AddZapravka extends AppCompatActivity {
                 }
                 if(addcumm == 0){
                     cumm.setError("Введите стоимость заправки");
-                    return;
-                }
-                if(addcomment.isEmpty()){
-                    comment.setError("Введите комментарий");
                     return;
                 }
                 if(adddata.isEmpty()){

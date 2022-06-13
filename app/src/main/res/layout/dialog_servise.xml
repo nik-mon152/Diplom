@@ -20,6 +20,7 @@
         android:id="@+id/name_workEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLength="30"
         android:hint="Название работ">
 
     </EditText>
@@ -29,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:maxLength="30"
         android:hint="Вид работ">
     </EditText>
 
@@ -37,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:maxLength="6"
         android:hint="Стоимость ремонта">
     </EditText>
 
@@ -45,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:maxLength="50"
         android:hint="Адресс сервиса">
     </EditText>
 
@@ -53,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:maxLength="6"
         android:hint="Пробег">
     </EditText>
 
@@ -65,7 +70,7 @@
     </EditText>
     <EditText
         android:id="@+id/commentEdit"
-        android:maxLength="500"
+        android:maxLength="100"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:inputType="textMultiLine"

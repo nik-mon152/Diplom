@@ -1,9 +1,5 @@
 package com.example.mycar.ui.Service.AddingService;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mycar.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -123,10 +123,6 @@ public class AddService extends AppCompatActivity {
                 }
                 if(adddata.isEmpty()){
                     data.setError("Введите дату");
-                    return;
-                }
-                if(addcomment.isEmpty()){
-                    comment.setError("Введите комментарий");
                     return;
                 }
 

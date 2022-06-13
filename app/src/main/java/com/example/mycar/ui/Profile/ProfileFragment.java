@@ -5,17 +5,8 @@ package com.example.mycar.ui.Profile;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-
-
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +16,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 import com.example.mycar.Authentication.LoginActivity;
 import com.example.mycar.R;
@@ -128,7 +124,7 @@ public class ProfileFragment extends Fragment {
                 dialogResetPassword.setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        //При заполнении поля с почто будет дана ссылка для смены пароля
+                        //При заполнении поля с почтой будет дана ссылка для смены пароля
                         String passwd = resetPasswd.getText().toString();
                         user.updatePassword(passwd).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -185,8 +181,6 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(v.getContext(), EditProfile.class);
-//                intent.putExtra("Имя", fullname.getText().toString());
-//                intent.putExtra("Фамилия", lastname.getText().toString());
                 intent.putExtra("Почта", email.getText().toString());
                 intent.putExtra("Номер телефона", number.getText().toString());
                 startActivity(intent);

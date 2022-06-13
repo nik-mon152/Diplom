@@ -49,6 +49,19 @@
         app:layout_constraintTop_toTopOf="parent">
     </ImageView>
 
+    <Button
+        android:id="@+id/btnAddCar"
+        android:layout_width="290dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttun_style"
+        android:text="Добавить или изменить тс"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -63,18 +76,6 @@
                 <include layout="@layout/item_info_view_fuel"/>
                 <include layout="@layout/item_info_power"/>
 
-                <Button
-                    android:id="@+id/btnAddCar"
-                    android:layout_width="290dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/buttun_style"
-                    android:text="Добавить или изменить тс"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
     </ScrollView>
 </LinearLayout>

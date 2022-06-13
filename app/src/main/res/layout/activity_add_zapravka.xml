@@ -102,7 +102,8 @@
             android:layout_marginStart="10dp"
             android:ems="10"
             android:hint="Кол-во"
-            android:inputType="phone"
+            android:maxLength="3"
+            android:inputType="number"
             app:layout_constraintStart_toEndOf="@+id/imageView12"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
         <EditText
@@ -113,7 +114,8 @@
             android:layout_marginEnd="20dp"
             android:ems="10"
             android:hint="Сумма"
-            android:inputType="phone"
+            android:maxLength="5"
+            android:inputType="number"
             app:layout_constraintEnd_toStartOf="@+id/priceAdd"
             app:layout_constraintStart_toEndOf="@+id/countAdd"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -140,6 +142,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Пробег"
+            android:maxLength="6"
             android:inputType="number"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/priceAdd" />
@@ -151,7 +154,8 @@
             android:layout_marginTop="22dp"
             android:ems="10"
             android:hint="Дата заправки"
-            android:inputType="textMultiLine"
+            android:maxLength="10"
+            android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/probegAdd"
             app:layout_constraintTop_toBottomOf="@+id/priceAdd" />

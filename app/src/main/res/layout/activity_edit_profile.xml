@@ -17,6 +17,7 @@
         android:layout_marginEnd="56dp"
         android:ems="10"
         android:hint="Ваше отчество"
+        android:maxLength="40"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +32,7 @@
         android:layout_marginEnd="56dp"
         android:ems="10"
         android:hint="Ваше имя"
+        android:maxLength="30"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +47,7 @@
         android:layout_marginEnd="56dp"
         android:ems="10"
         android:hint="Ваша фамилия"
+        android:maxLength="40"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,13 +61,14 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
+        android:maxLength="50"
         android:hint="Ваш Email"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBirthday" />
 
-    <EditText
+    <com.santalu.maskara.widget.MaskEditText
         android:id="@+id/textNumber"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -72,8 +76,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
+        app:mask="+8 ___ ___ __ __"
+        app:maskCharacter="_"
         android:hint="Ваш номер телефона"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEmail" />
@@ -86,8 +92,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
+        android:maxLength="8"
+        android:inputType="date"
         android:hint="Ваша дата рождения"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPatronymic" />

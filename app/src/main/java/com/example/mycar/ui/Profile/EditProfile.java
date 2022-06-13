@@ -128,13 +128,13 @@ public class EditProfile extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void unused) {
                                 Toast.makeText(getApplicationContext(),"Вы успешно изменили профиль!!!",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), ProfileFragment.class));
+                                finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(getApplicationContext(),"Ошибка" + e.getMessage(),Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), ProfileFragment.class));
-                                finish();
                             }
                         });
                         Toast.makeText(getApplicationContext(),"Вы успешно поменяли почту!!!",Toast.LENGTH_SHORT).show();

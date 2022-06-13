@@ -150,7 +150,6 @@ public class ServiseTableFragment extends Fragment {
         fstore.collection("Expenses").document(user.getUid()).set(totallist, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-
             }
         });
         textView.setText("Всего: "+ total +"₽");
