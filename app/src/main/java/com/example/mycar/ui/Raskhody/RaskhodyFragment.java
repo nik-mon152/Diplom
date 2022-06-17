@@ -1,16 +1,16 @@
 package com.example.mycar.ui.Raskhody;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.mycar.R;
 import com.github.mikephil.charting.charts.PieChart;
@@ -48,6 +48,7 @@ public class RaskhodyFragment extends Fragment {
 
 
         fstore.collection("Expenses").document(userId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 if (documentSnapshot != null) {
