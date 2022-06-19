@@ -154,8 +154,7 @@
             android:layout_marginTop="22dp"
             android:ems="10"
             android:hint="Дата заправки"
-            android:maxLength="10"
-            android:inputType="date"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/probegAdd"
             app:layout_constraintTop_toBottomOf="@+id/priceAdd" />

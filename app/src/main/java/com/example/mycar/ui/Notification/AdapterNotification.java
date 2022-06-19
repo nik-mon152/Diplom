@@ -1,24 +1,19 @@
 package com.example.mycar.ui.Notification;
 
 import android.annotation.SuppressLint;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Build;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycar.R;
@@ -85,6 +80,16 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
                         Log.d("Сообщение об ошибке", "Ошибка в документе");
                     }
                 }
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(v.getContext(), NotificationDetail.class);
+                intent.putExtra("notification", notificationList.get(position));
+                v.getContext().startActivity(intent);
             }
         });
 

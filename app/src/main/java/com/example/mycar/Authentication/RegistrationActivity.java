@@ -28,8 +28,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -41,8 +43,6 @@ public class RegistrationActivity extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    DatePickerDialog.OnDateSetListener onDateSetListener;
-    int year, month, day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,23 +61,28 @@ public class RegistrationActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        final Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
 
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+                updateCalendar();
+            }
+            private void updateCalendar() {
+                String format = "dd.MM.yyyy";
+                SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.ENGLISH);
+                regData.setText(sdf.format(calendar.getTime()));
+            }
+        };
         regData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                day = calendar.get(Calendar.DAY_OF_MONTH);
-                month = calendar.get(Calendar.MONTH);
-                year = calendar.get(Calendar.YEAR);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(RegistrationActivity.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month = month + 1;
-                        String date = dayOfMonth + "." + month + "." + year;
-                        regData.setText(date);
-                    }
-                }, day, month, year);
-                datePickerDialog.show();
+                new DatePickerDialog(RegistrationActivity.this, date, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
 
@@ -171,6 +176,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     regEmail.setError("Введите почту!!!");
                     return;
                 }
+
                 if(email.matches(emailPattern)){
                     Toast.makeText(getApplicationContext(),"valid email address",Toast.LENGTH_SHORT).show();
                 }else{

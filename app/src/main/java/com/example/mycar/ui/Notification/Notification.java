@@ -1,6 +1,8 @@
 package com.example.mycar.ui.Notification;
 
-public class Notification {
+import java.io.Serializable;
+
+public class Notification implements Serializable {
     private String view_work_notif;
     private String work_notif;
     private String adress_notif;

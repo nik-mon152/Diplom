@@ -1,13 +1,6 @@
 package com.example.mycar.ui.Notification;
 
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
-
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -22,6 +15,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.example.mycar.MainActivity;
 import com.example.mycar.R;
@@ -128,10 +127,6 @@ public class NotificationAdd extends AppCompatActivity {
                 }
                 if(probeg == 0){
                     probegn.setError("Введите пробег");
-                    return;
-                }
-                if(comment.isEmpty()){
-                    commentn.setError("Введите свое поле!!!");
                     return;
                 }
                 Map<String, Object> notif = new HashMap<>();
