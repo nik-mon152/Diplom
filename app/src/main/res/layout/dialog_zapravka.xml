@@ -21,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Вид топлива"
+        android:imeOptions="actionDone"
         android:maxLength="30"
         tools:ignore="TouchTargetSizeCheck">
 
@@ -31,8 +32,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Количество литров"
+        android:imeOptions="actionDone"
         android:inputType="number"
-        android:maxLength="2"
+        android:maxLength="3"
         tools:ignore="TouchTargetSizeCheck">
 
     </EditText>
@@ -42,8 +44,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Стоимость заправки"
+        android:imeOptions="actionDone"
         android:inputType="number"
-        android:maxLength="4"
+        android:maxLength="6"
         tools:ignore="TouchTargetSizeCheck">
 
     </EditText>
@@ -54,7 +57,8 @@
         android:layout_height="wrap_content"
         android:hint="Цена за литр"
         android:inputType="number"
-        android:maxLength="4"
+        android:imeOptions="actionDone"
+        android:maxLength="3"
         tools:ignore="TouchTargetSizeCheck">
 
     </EditText>
@@ -65,6 +69,7 @@
         android:layout_height="wrap_content"
         android:hint="Пробег"
         android:inputType="number"
+        android:imeOptions="actionDone"
         android:maxLength="6"
         tools:ignore="TouchTargetSizeCheck">
 
@@ -75,6 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Дата запраавки"
+        android:imeOptions="actionDone"
         android:inputType="date"
         tools:ignore="TouchTargetSizeCheck">
 
@@ -83,10 +89,15 @@
     <EditText
         android:id="@+id/commentAdd"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:hint="Комментарий"
+        android:lines="4"
+        android:maxLines="6"
+        android:scrollbars="vertical"
         android:inputType="textMultiLine"
+        android:imeOptions="actionDone"
         android:maxLength="100">
+
     </EditText>
 
     <Button

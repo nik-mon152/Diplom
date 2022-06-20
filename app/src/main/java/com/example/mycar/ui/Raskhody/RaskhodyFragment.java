@@ -33,7 +33,7 @@ public class RaskhodyFragment extends Fragment {
     FirebaseFirestore fstore;
     String userId;
     TextView servise, zapravki;
-    int fbservise, fbzapravki;
+    int fbzapravki, fbservise;
     int[] colorArray = new int[]{Color.BLUE, Color.RED};
 
     @Override
@@ -46,15 +46,14 @@ public class RaskhodyFragment extends Fragment {
         servise = v.findViewById(R.id.textServise);
         zapravki = v.findViewById(R.id.textZapravki);
 
-
         fstore.collection("Expenses").document(userId).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 if (documentSnapshot != null) {
                     if(documentSnapshot.exists()){
-                        servise.setText("Сервисы: " + documentSnapshot.getLong("total_servise").intValue() + "₽");
-                        zapravki.setText("Заправки: " + documentSnapshot.getLong("total_zapravka").intValue() + "₽");
+                        servise.setText("Сервисы: " + documentSnapshot.getLong("total_servise") + "₽");
+                        zapravki.setText("Заправки: " + documentSnapshot.getLong("total_zapravka") + "₽");
                         fbservise = documentSnapshot.getLong("total_servise").intValue();
                         fbzapravki = documentSnapshot.getLong("total_zapravka").intValue();
                     }else{

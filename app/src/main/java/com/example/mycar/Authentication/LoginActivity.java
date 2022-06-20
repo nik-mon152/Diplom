@@ -1,9 +1,5 @@
 package com.example.mycar.Authentication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +9,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mycar.MainActivity;
 import com.example.mycar.R;
@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EditText resetEmail = new EditText(view.getContext());
+                resetEmail.setMaxLines(1);
                 AlertDialog.Builder dialogResetPassword = new AlertDialog.Builder(view.getContext());
                 dialogResetPassword.setTitle("Хотите сменить пароль?");
                 dialogResetPassword.setMessage("Введите почту с которой вы регистрировались");

@@ -65,7 +65,7 @@
         android:layout_marginEnd="56dp"
         android:ems="10"
         android:hint="Ваш Email"
-        android:inputType="textPersonName"
+        android:editable="false"
         android:maxLength="50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEmail"
-        app:mask="+8 ___ ___ __ __"
+        app:mask="+7 ___ ___ __ __"
         app:maskCharacter="_" />
 
     <EditText

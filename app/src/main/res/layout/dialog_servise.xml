@@ -21,6 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLength="30"
+        android:inputType="textCapSentences"
+        android:imeOptions="actionDone"
         android:hint="Название работ">
 
     </EditText>
@@ -29,7 +31,8 @@
         android:id="@+id/view_ServiseEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="textCapSentences"
+        android:imeOptions="actionDone"
         android:maxLength="30"
         android:hint="Вид работ">
     </EditText>
@@ -39,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:imeOptions="actionDone"
         android:maxLength="6"
         android:hint="Стоимость ремонта">
     </EditText>
@@ -48,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:imeOptions="actionDone"
         android:maxLength="50"
         android:hint="Адресс сервиса">
     </EditText>
@@ -57,6 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:imeOptions="actionDone"
         android:maxLength="6"
         android:hint="Пробег">
     </EditText>
@@ -66,15 +72,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
+        android:imeOptions="actionDone"
         android:hint="Дата запраавки">
     </EditText>
+
     <EditText
         android:id="@+id/commentEdit"
-        android:maxLength="100"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
+        android:hint="Комментарий"
+        android:lines="4"
+        android:maxLines="6"
+        android:scrollbars="vertical"
         android:inputType="textMultiLine"
-        android:hint="Комментарий">
+        android:imeOptions="actionDone"
+        android:maxLength="100">
+
     </EditText>
     <Button
         android:id="@+id/btnEdit"
